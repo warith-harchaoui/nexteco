@@ -1,6 +1,6 @@
 # NextEco
 
-**Coding prompts for adding honest cost accounting to any software repository.**
+**Coding prompts for adding honest cost estimation to any software repository.**
 
 ![NextEco](assets/logo.png)
 
@@ -9,7 +9,7 @@ Drop one of these prompts [core.md](core.md) or [advanced.md](advanced.md) into 
   + 🪫 energy
   + 💨 $\text{CO}_2$ 
 
-The ambition of this repository is to embody good practice in cost accounting across six dimensions:
+The ambition of this repository is to embody good practice in cost estimation across six dimensions:
 1. *reproducibility*, so cost estimation can be regenerated from code and committed artifacts
 2. *honesty*, so unknowns remain clearly marked as unknowns and assumptions are explicit
 3. *traceability*, so every number has clear provenance
@@ -35,7 +35,7 @@ The ambition of this repository is to embody good practice in cost accounting ac
 
 Most repos have no honest answer to: *"What does it actually cost to run this?"*
 
-Cost estimation is a tedious and overlooked aspect of software development. These prompts solve this problem by providing a simple and effective way to add honest cost accounting to any software repository.  The result is a cost model that is useful immediately and honest about what it does not know.
+Cost estimation is a tedious and overlooked aspect of software development. These prompts solve this problem by providing a simple and effective way to add honest cost estimation to any software repository.  The result is a cost model that is useful immediately and honest about what it does not know.
 
 
 
@@ -48,7 +48,7 @@ We have two similar prompts:
 
 | Situation | Use |
 |---|---|
-| Any repo needing honest cost accounting | **Core** |
+| Any repo needing honest cost estimation | **Core** |
 | Runtime, memory, or energy is a primary concern for users/operators | **Advanced** |
 | A benchmark already exists in the repo | **Advanced** |
 | You want profiling to explain where cost comes from | **Advanced** |

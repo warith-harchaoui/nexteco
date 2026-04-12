@@ -1,6 +1,6 @@
 # NextEco
 
-**Prompts de programmation pour ajouter une comptabilité des coûts honnête à n'importe quel dépôt logiciel.**
+**Prompts de programmation pour ajouter une estimation des coûts honnête à n'importe quel dépôt logiciel.**
 
 ![NextEco](assets/logo-fr.png)
 
@@ -10,7 +10,7 @@ Insérez l'un de ces prompts [core.md](core.md) ou [advanced.md](advanced.md) da
   + 🪫 l'énergie
   + 💨 $\text{CO}_2$
 
-L'ambition de ce dépôt est d'incarner les bonnes pratiques de comptabilité des coûts selon six dimensions :
+L'ambition de ce dépôt est d'incarner les bonnes pratiques d'estimation des coûts selon six dimensions :
 1. *reproductibilité* : l'estimation des coûts peut être régénérée à partir du code et des artefacts versionnés
 2. *honnêteté* : les inconnues restent clairement marquées comme inconnues et les hypothèses sont explicites
 3. *traçabilité* : chaque chiffre a une provenance claire
@@ -36,7 +36,7 @@ L'ambition de ce dépôt est d'incarner les bonnes pratiques de comptabilité de
 
 La plupart des dépôts n'ont pas de réponse honnête à : *« Combien coûte réellement l'exécution de ce logiciel ? »*
 
-L'estimation des coûts est un aspect fastidieux et négligé du développement logiciel. Ces prompts résolvent ce problème en fournissant un moyen simple et efficace d'ajouter une comptabilité honnête des coûts à n'importe quel dépôt. Le résultat est un modèle de coûts immédiatement utile et honnête sur ce qu'il ne sait pas.
+L'estimation des coûts est un aspect fastidieux et négligé du développement logiciel. Ces prompts résolvent ce problème en fournissant un moyen simple et efficace d'ajouter une estimation honnête des coûts à n'importe quel dépôt. Le résultat est un modèle de coûts immédiatement utile et honnête sur ce qu'il ne sait pas.
 
 
 
@@ -49,7 +49,7 @@ Deux prompts similaires sont disponibles :
 
 | Situation | Utiliser |
 |---|---|
-| Tout dépôt nécessitant une comptabilité honnête des coûts | **Core** |
+| Tout dépôt nécessitant une estimation honnête des coûts | **Core** |
 | Le temps d'exécution, la mémoire ou l'énergie sont une préoccupation principale pour les utilisateurs/opérateurs | **Advanced** |
 | Un benchmark existe déjà dans le dépôt | **Advanced** |
 | Vous souhaitez un profilage pour expliquer l'origine des coûts | **Advanced** |
