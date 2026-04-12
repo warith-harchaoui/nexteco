@@ -1,6 +1,6 @@
 # NextEco
 
-**Prompts de programmation pour ajouter une estimation des coûts honnête à n'importe quel dépôt logiciel.**
+Prompts de programmation pour ajouter une estimation des coûts honnête à n'importe quel dépôt logiciel.
 
 ![NextEco](assets/logo-fr.png)
 
