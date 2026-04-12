@@ -40,6 +40,10 @@ Cost estimation is a tedious and overlooked aspect of software development. Thes
 
 ## Which prompt to use
 
+We have two similar prompts:
+  + [core.md](core.md) which is test-oriented
+  + [advanced.md](advanced.md) which is test-oriented with a profiler approach
+
 | Situation | Use |
 |---|---|
 | Any repo needing honest cost accounting | **Core** |
