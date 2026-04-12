@@ -2,7 +2,9 @@
 
 **Coding prompts for adding honest cost accounting to any software repository.**
 
-Drop one of these prompts into VS Code (Copilot Agent), Cursor, Antigravity, Windsurf, Claude Code, or any agentic coding tool. The AI will audit your repo and implement a reproducible, test-backed "Cost of Running" feature — covering:
+![NextEco](assets/logo.png)
+
+Drop one of these prompts [core.md](core.md) or [advanced.md](advanced.md) into VS Code (Copilot Agent), Cursor, Antigravity, Windsurf, Claude Code, or any agentic coding tool. The AI will audit your repo and implement a reproducible, test-backed "Cost of Running" feature — covering:
   + 💰 money
   + 🪫 energy
   + 💨 $\text{CO}_2$ 
