@@ -77,7 +77,7 @@ claude "$(cat advanced.md)"
 ```
 
 **Cursor / Antigravity / Windsurf / VS Code Agent:**
-Open the agent chat, paste the contents of `core.md` or `advanced.md`, and send.
+Open the agent chat, paste the contents of [`core.md`](core.md) or [`advanced.md`](advanced.md), and send.
 
 **Any other agentic tool:**
 Paste the prompt contents into the agent's input. The prompt is self-contained.
