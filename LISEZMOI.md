@@ -8,7 +8,7 @@ Prompts de programmation pour ajouter une estimation des coûts honnête à n'im
 Insérez l'un de ces prompts [core.md](core.md) ou [advanced.md](advanced.md) dans votre IDE : VS Code (Copilot Agent), Cursor, Antigravity, Windsurf, Claude Code ou tout autre outil de programmation agentique. L'IA auditora votre dépôt et implémentera une fonctionnalité « Coût de fonctionnement » reproductible et testée, couvrant :
   + 💰 l'argent
   + 🪫 l'énergie
-  + 💨 $\text{CO}_2$
+  + 💨 le $\text{CO}_2$
 
 L'ambition de ce dépôt est d'incarner les bonnes pratiques d'estimation des coûts selon six dimensions :
 1. *reproductibilité* : l'estimation des coûts peut être régénérée à partir du code et des artefacts versionnés
