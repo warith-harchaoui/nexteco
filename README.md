@@ -1,6 +1,6 @@
 # NextEco
 
-**Coding prompts for adding honest cost estimation to any software repository.**
+Coding prompts for adding honest cost estimation to any software repository
 
 ![NextEco](assets/logo.png)
 
