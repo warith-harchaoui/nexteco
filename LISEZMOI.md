@@ -216,6 +216,21 @@ Lors de la modification d'un prompt, testez-le sur au moins un dépôt réel ava
 
 ---
 
+## Auteur
+
+[Warith Harchaoui](https://www.linkedin.com/in/warith-harchaoui/), docteur et directeur de l'IA chez [NEXTON](https://nexton-group.com)
+
+---
+
+## Remerciements
+
+Ce projet est né de discussions avec :
+  + [Yann Lechelle](https://www.linkedin.com/in/ylechelle), dirigeant et cofondateur de [probabl.ai](https://probabl.ai), la société derrière `scikit-learn`
+  + [Laurent Panatanacce](https://www.linkedin.com/in/panatanacce), mon mentor en affaires et facilitateur IA chez [NEXTON](https://nexton-group.com)
+
+
+---
+
 ## Licence
 
 [The Unlicense](https://unlicense.org) — domaine public, sans conditions. Voir [LICENSE](LICENSE).

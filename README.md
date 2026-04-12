@@ -209,7 +209,7 @@ All formulas are explicit in the YAML and verified by tests.
 
 ## Contributing
 
-Issues and PRs welcome. The prompts are the product — keep changes focused on improving agent behavior, not adding infrastructure.
+Issues and PRs are welcome. The prompts are the product — keep changes focused on improving agent behavior, not adding infrastructure.
 
 When editing a prompt, test it against at least one real repository before submitting.
 
