@@ -215,6 +215,21 @@ When editing a prompt, test it against at least one real repository before submi
 
 ---
 
+## Author
+
+[Warith Harchaoui](https://www.linkedin.com/in/warith-harchaoui/), Ph.D. and Head of AI at [NEXTON](https://nexton-group.com)
+
+---
+
+## Thanks
+
+This project is born out of discussions with:
+  + [Yann Lechelle  ](https://www.linkedin.com/in/ylechelle), leader and co-founder of [probabl.ai](https://probabl.ai) the company of `scikit-learn`
+  + [Laurent Panatanacce](https://www.linkedin.com/in/panatanacce), my mentor in business and AI Business Enabler at [NEXTON](https://nexton-group.com)
+
+
+---
+
 ## License
 
 [The Unlicense](https://unlicense.org) — public domain, no conditions. See [LICENSE](LICENSE).
