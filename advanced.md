@@ -129,6 +129,63 @@ If no direct measurements exist, energy must be labeled as an estimate derived f
 energy_kwh = runtime_hours × average_power_kw
 ```
 
+### Country-aware electricity and carbon defaults
+
+Electricity price and grid carbon intensity vary dramatically by country — France emits ~56 gCO₂e/kWh; Australia emits ~620 gCO₂e/kWh. A flat global average of 400 would be a 7× error for a French developer. **Detect the country from the running environment and use per-country values.**
+
+Detect in this priority order (use the first method that succeeds):
+
+**1. System timezone** (no network required):
+- macOS: `readlink /etc/localtime | sed 's|.*/zoneinfo/||'`
+- Linux: `cat /etc/timezone` or `timedatectl show --property=Timezone --value`
+- Windows: `tzutil /g`
+- Python: `from tzlocal import get_localzone_name()` if installed
+
+**2. System locale** (no network required):
+- Python: `import locale; locale.getdefaultlocale()` → e.g. `('fr_FR', 'UTF-8')` → country `FR`
+
+**3. IP geolocation** (standard library, requires network):
+```python
+import urllib.request, json
+try:
+    data = json.loads(urllib.request.urlopen('https://ipinfo.io/json', timeout=3).read())
+    country_code = data.get('country')  # ISO 3166-1 alpha-2, e.g. "FR"
+except Exception:
+    country_code = None  # fall back to global average
+```
+
+**4. Manual fallback:** use global average and add `TODO: confirm region`.
+
+Per-country reference values — mark all as `status: estimated` (source: Our World in Data / Electricity Maps 2023, Eurostat / EIA / IEA 2024):
+
+| Country | Code | Carbon (gCO₂e/kWh) | Electricity (USD/kWh) |
+|---|---|---|---|
+| Norway | NO | 29 | 0.12 |
+| France | FR | 56 | 0.20 |
+| Switzerland | CH | 42 | 0.30 |
+| Sweden | SE | 45 | 0.18 |
+| New Zealand | NZ | 130 | 0.18 |
+| Brazil | BR | 130 | 0.14 |
+| Canada | CA | 130 | 0.12 |
+| Denmark | DK | 149 | 0.36 |
+| Austria | AT | 155 | 0.25 |
+| Belgium | BE | 174 | 0.27 |
+| Spain | ES | 182 | 0.19 |
+| United Kingdom | GB | 238 | 0.27 |
+| Italy | IT | 298 | 0.28 |
+| Netherlands | NL | 301 | 0.28 |
+| Germany | DE | 380 | 0.35 |
+| United States | US | 386 | 0.17 |
+| Japan | JP | 455 | 0.23 |
+| China | CN | 585 | 0.09 |
+| Australia | AU | 620 | 0.28 |
+| India | IN | 708 | 0.09 |
+| Poland | PL | 773 | 0.18 |
+| South Africa | ZA | 780 | 0.12 |
+| *Global average* | — | *400* | *0.15* |
+
+Record the detected country and method in `cost_of_running.yaml` (see schema in step 5).
+
 ---
 
 ## LLM and API cost driver guidance
@@ -528,12 +585,16 @@ assumptions:
     status: "measured|estimated|placeholder"
   electricity:
     usd_per_kwh: ...
-    region: "..."
+    region: "..."                  # e.g. "FR", "US", "global average"
+    detected_country: "..."       # ISO 3166-1 alpha-2; from timezone, locale, or ip_geolocation
+    detection_method: "timezone|locale|ip_geolocation|manual|unknown"
     source: "..."
     status: "measured|estimated|placeholder"
   carbon_intensity:
     gco2e_per_kwh: ...
-    region: "..."
+    region: "..."                  # e.g. "FR", "US", "global average"
+    detected_country: "..."       # ISO 3166-1 alpha-2; from timezone, locale, or ip_geolocation
+    detection_method: "timezone|locale|ip_geolocation|manual|unknown"
     source: "..."
     status: "measured|estimated|placeholder"
   hardware:

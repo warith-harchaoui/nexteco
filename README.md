@@ -298,6 +298,11 @@ Two distinctions matter:
 
 That separation keeps the model clean.
 
+Look at these examples of cost estimation reporting:
+  + [ChatGPT 4o RAG + LLM as a judge](examples/rag_llm_judge_chatgpt4o.md)
+
+  + [Ollama Gemma3:4b RAG + LLM as a judge](examples/rag_llm_judge_ollama_gemma3_4b.md) 
+
 ---
 
 ## How to use
