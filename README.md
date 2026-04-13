@@ -212,7 +212,7 @@ That includes at least four dimensions:
 
 ---
 
-## Explicit, auditable math
+## Simple, explicit and auditable math
 
 NextEco is grounded in simple formulas the agent must document and preserve.
 

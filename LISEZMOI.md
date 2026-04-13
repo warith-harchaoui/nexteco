@@ -212,7 +212,7 @@ Cela comprend au moins quatre dimensions :
 
 ---
 
-## Mathématiques explicites et auditables
+## Mathématiques simples, explicites et auditables
 
 NextEco repose sur des formules simples que l'agent doit documenter et préserver.
 
