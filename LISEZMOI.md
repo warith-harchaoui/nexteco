@@ -1,6 +1,6 @@
 # NextEco
 
-NextEco rend le **coût de fonctionnement** visible au sein d'un dépôt.
+NextEco rend le **coût de fonctionnement** du code.
 
 [🇺🇸](README.md)&nbsp;[🇫🇷](LISEZMOI.md)
 
