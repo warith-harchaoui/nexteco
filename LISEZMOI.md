@@ -230,13 +230,13 @@ $$
 
 | Symbole | Signification | Unité |
 |---|---|---|
-| $E_{\text{kWh}}$ | Énergie consommée | kWh |
-| $t_{\text{h}}$ | Temps d'exécution réel | heures |
-| $P_{\text{kW}}$ | Puissance moyenne | kW |
-| $C_{\text{USD}}$ | Coût électrique du calcul local | USD |
-| $p_{\text{USD/kWh}}$ | Prix de l'électricité | USD / kWh |
-| $\mathrm{CO}_2\mathrm{e}_{\mathrm{g}}$ | Empreinte carbone | g CO₂e |
-| $I_{\text{gCO}_2\text{e/kWh}}$ | Intensité carbone du réseau électrique | g CO₂e / kWh |
+| $E_{\mathrm{kWh}}$ | Énergie consommée | kWh |
+| $t_{\mathrm{h}}$ | Temps d'exécution réel | h |
+| $P_{\mathrm{kW}}$ | Puissance moyenne | kW |
+| $C_{\mathrm{USD}}$ | Coût électrique du calcul local | USD |
+| $p_{\mathrm{USD}/\mathrm{kWh}}$ | Prix de l'électricité | USD/kWh |
+| $\mathrm{CO_2e}_{\mathrm{g}}$ | Empreinte carbone | g CO₂e |
+| $I_{\mathrm{g\ CO_2e}/\mathrm{kWh}}$ | Intensité carbone du réseau électrique | g CO₂e/kWh |
 
 L'objectif n'est pas la sophistication.  
 L'objectif est la **clarté, l'auditabilité et la testabilité**.
