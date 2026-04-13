@@ -235,7 +235,7 @@ $$
 | $P_{\text{kW}}$ | Puissance moyenne | kW |
 | $C_{\text{USD}}$ | Coût électrique du calcul local | USD |
 | $p_{\text{USD/kWh}}$ | Prix de l'électricité | USD / kWh |
-| $\text{CO}_2\text{e}_{\text{g}}$ | Empreinte carbone | g CO₂e |
+| $\mathrm{CO}_2\mathrm{e}_{\mathrm{g}}$ | Empreinte carbone | g CO₂e |
 | $I_{\text{gCO}_2\text{e/kWh}}$ | Intensité carbone du réseau électrique | g CO₂e / kWh |
 
 L'objectif n'est pas la sophistication.  
