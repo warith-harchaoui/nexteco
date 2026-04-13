@@ -11,8 +11,8 @@ NextEco is an **agent-ready engineering framework** that adds a reproducible, te
 
 It helps teams estimate and document the running cost of software across four dimensions:
 
-- ⏱️ **time**
 - 💰 **money**
+- ⏱️ **time**
 - 🪫 **energy**
 - 💨 **carbon**
 
@@ -75,7 +75,7 @@ That means:
 **NextEco turns “What does this cost to run?” into a reproducible, test-backed repository feature.**
 
 ### ⚠️ Problem / Opportunity
-- Most repos ship with zero honest cost data — no time, no money, no energy, no carbon.
+- Most repos ship with zero honest cost data — no money, no time, no energy, no carbon.
 - AI agents asked naively invent plausible-looking numbers with false confidence.
 - Teams usually discover the gap only when an operator asks: *“What does this actually cost to run?”*
 
@@ -88,6 +88,7 @@ That means:
 - A single canonical unit of work anchors every number to something measurable.
 - The YAML is the source of truth; the README section is generated from it.
 - Formula-coherent tests catch any drift between the model and the documentation.
+- In-situ benchmarking and profiling with low-level OS routines (powermetrics, etc.)
 
 ### 💰 Business model
 - The prompts are the product — free, open, public domain ([The Unlicense](https://unlicense.org)).
@@ -203,8 +204,8 @@ Cost is treated as a software metric, alongside correctness, latency, memory and
 
 That includes at least four dimensions:
 
-- ⏱️ **time**
 - 💰 **money**
+- ⏱️ **time**
 - 🪫 **energy**
 - 💨 **carbon**
 

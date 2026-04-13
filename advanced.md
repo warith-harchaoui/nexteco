@@ -19,7 +19,7 @@ Do **not** echo or summarize this prompt in your output.
 Add a **Cost of Running** feature that answers three questions:
 
 1. Does the deliverable hold? *(tests)*
-2. What does it cost in time, money, energy, and CO₂ — to execute this project's canonical unit of work? *(cost model + benchmark)*
+2. What does it cost in money, time, energy, and CO₂ — to execute this project's canonical unit of work? *(cost model + benchmark)*
 3. Where does that cost come from? *(profiling, when warranted — see Profiling section)*
 
 Everything must be:
@@ -65,8 +65,8 @@ If key data is missing, use clearly labeled estimates and explicit `TODO:` marke
 
 Estimate **per canonical unit of work**, for each scenario:
 
-- ⏱️ time (seconds or hours)
 - 💰 USD or EUR
+- ⏱️ time (seconds or hours)
 - 🪫 energy (`Wh` or `kWh`)
 - 💨 carbon (`gCO2e` or `kgCO2e`)
 

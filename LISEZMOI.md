@@ -11,8 +11,8 @@ NextEco est un **framework d'ingénierie prêt pour les agents** qui ajoute une 
 
 Il aide les équipes à estimer et documenter le coût de fonctionnement d'un logiciel selon quatre dimensions :
 
-- ⏱️ **temps**
 - 💰 **argent**
+- ⏱️ **temps**
 - 🪫 **énergie**
 - 💨 **carbone**
 
@@ -75,7 +75,7 @@ Cela signifie :
 **NextEco transforme « Combien coûte l'exécution de ceci ? » en une fonctionnalité reproductible et testée dans le dépôt.**
 
 ### ⚠️ Problème / Opportunité
-- La plupart des dépôts sont livrés sans aucune donnée honnête sur les coûts — ni temps, ni argent, ni énergie, ni carbone.
+- La plupart des dépôts sont livrés sans aucune donnée honnête sur les coûts — ni argent, ni temps, ni énergie, ni carbone.
 - Les agents IA interrogés naïvement inventent des chiffres vraisemblables avec une fausse confiance.
 - Les équipes ne découvrent généralement le manque que lorsqu'un opérateur demande : *« Combien coûte réellement l'exécution de ce logiciel ? »*
 
@@ -88,6 +88,7 @@ Cela signifie :
 - Une seule unité de travail canonique ancre chaque chiffre à quelque chose de mesurable.
 - Le YAML est la source de vérité ; la section README en est générée.
 - Des tests cohérents avec les formules détectent toute dérive entre le modèle et la documentation.
+- Des benchmarks et des profils in situ avec des routines OS bas niveau (powermetrics, etc.)
 
 ### 💰 Modèle économique
 - Les prompts sont le produit — gratuits, ouverts, domaine public ([The Unlicense](https://unlicense.org)).
@@ -203,8 +204,8 @@ Le coût est traité comme une métrique logicielle, au même titre que la corre
 
 Cela comprend au moins quatre dimensions :
 
-- ⏱️ **temps**
 - 💰 **argent**
+- ⏱️ **temps**
 - 🪫 **énergie**
 - 💨 **carbone**
 
