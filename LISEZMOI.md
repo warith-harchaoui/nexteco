@@ -155,6 +155,7 @@ Lancez un prompt et l'agent crée ou met généralement à jour :
 | Fichier | Objectif |
 |---|---|
 | `README.md` | Section `Coût de fonctionnement` gérée, avec hypothèses, scénarios et méthode |
+| `cost_of_running.yaml.example` | **Critique :** modèle de config de déploiement (matériel et localisation) |
 | `cost_of_running.yaml` | Source de vérité lisible par les machines |
 | `scripts/update_cost_of_running.py` | Régénère la section README des coûts depuis le YAML |
 | fichiers de tests | Vérifient les formules, la cohérence du schéma et la synchronisation README |
@@ -258,7 +259,9 @@ Ce n'est pas une faiblesse, c'est de l'hygiène scientifique.
 
 ## Exemple de schéma
 
-Vous définissez le contexte matériel d'exécution et l'échelle de travail dans un fichier `cost_of_running.yaml.example` que les utilisateurs copient, modifient et enregistrent sous `cost_of_running.yaml` :
+Parce que l'intensité carbone du réseau varie considérablement à l'échelle mondiale (ex: France ~56 gCO₂e/kWh vs Australie ~620 gCO₂e/kWh) et que la consommation électrique diffère selon le matériel, NextEco oblige les développeurs à définir explicitement leur environnement.
+
+Vous définissez le contexte matériel d'exécution et l'échelle de travail dans un fichier très commenté `cost_of_running.yaml.example` que les utilisateurs copient, modifient et enregistrent sous `cost_of_running.yaml` :
 
 ```yaml
 deployment:

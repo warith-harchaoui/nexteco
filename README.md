@@ -155,6 +155,7 @@ Run one prompt and the agent typically creates or updates:
 | File | Purpose |
 |---|---|
 | `README.md` | Managed `Cost of Running` section with assumptions, scenarios and method |
+| `cost_of_running.yaml.example` | **Critical:** deployment config template (hardware & location setting) |
 | `cost_of_running.yaml` | Machine-readable source of truth |
 | `scripts/update_cost_of_running.py` | Regenerates the README cost section from YAML |
 | test files | Verify formulas, schema coherence and README sync |
@@ -258,7 +259,9 @@ That is not a weakness, it is scientific hygiene.
 
 ## Example schema
 
-You define the physical runtime and scale context in a `cost_of_running.yaml.example` file that users copy, edit, and save as `cost_of_running.yaml`:
+Because grid carbon intensity varies drastically globally (e.g., France ~56 gCO₂e/kWh vs Australia ~620 gCO₂e/kWh) and power draw differs by hardware, NextEco requires developers to explicitly define their environment.
+
+You define the physical runtime and scale context in a heavily-commented `cost_of_running.yaml.example` file that users copy, edit, and save as `cost_of_running.yaml`:
 
 ```yaml
 deployment:
