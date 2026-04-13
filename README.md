@@ -2,6 +2,9 @@
 
 NextEco makes the **cost of running** visible inside a repository.
 
+[🇺🇸](README.md)&nbsp;[🇫🇷](LISEZMOI.md)
+
+
 ![NextEco](assets/logo.png)
 
 NextEco is an **agent-ready engineering framework** that adds a reproducible, test-backed **Cost of Running** feature to any codebase.
