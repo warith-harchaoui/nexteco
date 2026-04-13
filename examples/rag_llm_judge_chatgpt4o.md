@@ -19,7 +19,7 @@ This is the unit a developer or operator invokes when testing the pipeline again
 
 ### Scenario table
 
-| Scenario | Runtime | Energy (local) | API cost | Local compute | **Total** | Carbon (local) |
+| Scenario | Time (Runtime) | Energy (local) | API cost | Local compute | **Total** | Carbon (local) |
 |---|---|---|---|---|---|---|
 | small (3 chunks, ~700-token context) | 2.1 s | 0.0000072 kWh | **$0.0059** | < $0.001 | **$0.0059** | 0.003 gCO₂e |
 | **typical** (5 chunks, ~1 400-token context) | 3.5 s | 0.0000117 kWh | **$0.0103** | < $0.001 | **$0.0103** | 0.005 gCO₂e |
@@ -147,6 +147,16 @@ python scripts/trace_api_calls.py
 
 ```yaml
 date_updated: "2025-04-13"
+
+deployment:
+  provider: "local"
+  instance_type: "Apple M2 Pro MacBook Pro"
+  region: "local"
+  country: "global average"
+
+workload:
+  type: "inference"
+  scale: "one-off evaluation query"
 
 unit_of_work:
   name: "one end-to-end evaluated RAG query"

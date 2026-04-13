@@ -21,7 +21,7 @@ This is the unit a developer or evaluator invokes when testing the pipeline agai
 
 ### Scenario table
 
-| Scenario | Runtime | Energy | API cost | Local compute | **Total** | Carbon |
+| Scenario | Time (Runtime) | Energy | API cost | Local compute | **Total** | Carbon |
 |---|---|---|---|---|---|---|
 | small (3 chunks, ~700-token context) | 24 s | 0.000187 kWh | $0.00 | **$0.000022** | **$0.000022** | **0.075 gCO₂e** |
 | **typical** (5 chunks, ~1 400-token context) | 41 s | 0.000319 kWh | $0.00 | **$0.000038** | **$0.000038** | **0.128 gCO₂e** |
@@ -144,6 +144,16 @@ python scripts/update_cost_of_running.py
 
 ```yaml
 date_updated: "2025-04-13"
+
+deployment:
+  provider: "local"
+  instance_type: "Apple M2 Pro MacBook Pro"
+  region: "local"
+  country: "global average"
+
+workload:
+  type: "inference"
+  scale: "one-off evaluation query"
 
 unit_of_work:
   name: "one end-to-end evaluated RAG query (fully local)"

@@ -19,7 +19,7 @@ Do **not** echo or summarize this prompt in your output.
 Add a **Cost of Running** feature that answers three questions:
 
 1. Does the deliverable hold? *(tests)*
-2. What does it cost in money, energy, and CO₂ — to execute this project's canonical unit of work? *(cost model + benchmark)*
+2. What does it cost in time, money, energy, and CO₂ — to execute this project's canonical unit of work? *(cost model + benchmark)*
 3. Where does that cost come from? *(profiling, when warranted — see Profiling section)*
 
 Everything must be:
@@ -65,6 +65,7 @@ If key data is missing, use clearly labeled estimates and explicit `TODO:` marke
 
 Estimate **per canonical unit of work**, for each scenario:
 
+- ⏱️ time (seconds or hours)
 - 💰 USD or EUR
 - 🪫 energy (`Wh` or `kWh`)
 - 💨 carbon (`gCO2e` or `kgCO2e`)
@@ -129,32 +130,27 @@ If no direct measurements exist, energy must be labeled as an estimate derived f
 energy_kwh = runtime_hours × average_power_kw
 ```
 
-### Country-aware electricity and carbon defaults
+### Country-aware electricity and deployment context
 
-Electricity price and grid carbon intensity vary dramatically by country — France emits ~56 gCO₂e/kWh; Australia emits ~620 gCO₂e/kWh. A flat global average of 400 would be a 7× error for a French developer. **Detect the country from the running environment and use per-country values.**
+Electricity price and grid carbon intensity vary dramatically by country — France emits ~56 gCO₂e/kWh; Australia emits ~620 gCO₂e/kWh. A flat global average of 400 would be a 7× error for a French developer.
 
-Detect in this priority order (use the first method that succeeds):
+**Do not guess the country from the operating system.** Instead, allow the user to define their context.
 
-**1. System timezone** (no network required):
-- macOS: `readlink /etc/localtime | sed 's|.*/zoneinfo/||'`
-- Linux: `cat /etc/timezone` or `timedatectl show --property=Timezone --value`
-- Windows: `tzutil /g`
-- Python: `from tzlocal import get_localzone_name()` if installed
+**Create a `cost_of_running.yaml.example` file** side-by-side with your `cost_of_running.yaml` deliverable. This file must contain:
 
-**2. System locale** (no network required):
-- Python: `import locale; locale.getdefaultlocale()` → e.g. `('fr_FR', 'UTF-8')` → country `FR`
+```yaml
+deployment:
+  provider: "unknown"        # e.g., aws / gcp / azure / oracle / on-prem / local / unknown
+  instance_type: "unknown"   # e.g., m2-pro, p3.2xlarge, a2-highgpu-1g
+  region: "unknown"          # e.g., eu-west-1, us-central1, local
+  country: "unknown"         # The explicit definition used for grid carbon/electricity tables
 
-**3. IP geolocation** (standard library, requires network):
-```python
-import urllib.request, json
-try:
-    data = json.loads(urllib.request.urlopen('https://ipinfo.io/json', timeout=3).read())
-    country_code = data.get('country')  # ISO 3166-1 alpha-2, e.g. "FR"
-except Exception:
-    country_code = None  # fall back to global average
+workload:
+  type: "unknown"            # e.g., training / inference / batch / api / unknown
+  scale: "unknown"           # e.g., one-off / daily / continuous / 1M_requests_month
 ```
 
-**4. Manual fallback:** use global average and add `TODO: confirm region`.
+Instruct the user in the README to copy this example to `cost_of_running.yaml` and define their context. Within `cost_of_running.yaml`, embed these definitions and use the declared `country` to populate your electricity and carbon assumptions.
 
 Per-country reference values — mark all as `status: estimated` (source: Our World in Data / Electricity Maps 2023, Eurostat / EIA / IEA 2024):
 
@@ -184,7 +180,7 @@ Per-country reference values — mark all as `status: estimated` (source: Our Wo
 | South Africa | ZA | 780 | 0.12 |
 | *Global average* | — | *400* | *0.15* |
 
-Record the detected country and method in `cost_of_running.yaml` (see schema in step 5).
+Record the configured country in `cost_of_running.yaml` (see schema in step 5).
 
 ---
 
@@ -545,6 +541,16 @@ Schema:
 ```yaml
 date_updated: YYYY-MM-DD
 
+deployment:
+  provider: "..."
+  instance_type: "..."
+  region: "..."
+  country: "..."
+
+workload:
+  type: "..."
+  scale: "..."
+
 unit_of_work:
   name: "..."
   description: "..."
@@ -586,15 +592,13 @@ assumptions:
   electricity:
     usd_per_kwh: ...
     region: "..."                  # e.g. "FR", "US", "global average"
-    detected_country: "..."       # ISO 3166-1 alpha-2; from timezone, locale, or ip_geolocation
-    detection_method: "timezone|locale|ip_geolocation|manual|unknown"
+    country: "..."                 # Copied from deployment block
     source: "..."
     status: "measured|estimated|placeholder"
   carbon_intensity:
     gco2e_per_kwh: ...
     region: "..."                  # e.g. "FR", "US", "global average"
-    detected_country: "..."       # ISO 3166-1 alpha-2; from timezone, locale, or ip_geolocation
-    detection_method: "timezone|locale|ip_geolocation|manual|unknown"
+    country: "..."                 # Copied from deployment block
     source: "..."
     status: "measured|estimated|placeholder"
   hardware:

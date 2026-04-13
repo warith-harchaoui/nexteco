@@ -9,8 +9,9 @@ NextEco rend le **coût de fonctionnement** visible au sein d'un dépôt.
 
 NextEco est un **framework d'ingénierie prêt pour les agents** qui ajoute une fonctionnalité **Coût de fonctionnement** reproductible et testée à n'importe quelle base de code.
 
-Il aide les équipes à estimer et documenter le coût de fonctionnement d'un logiciel selon trois dimensions :
+Il aide les équipes à estimer et documenter le coût de fonctionnement d'un logiciel selon quatre dimensions :
 
+- ⏱️ **temps**
 - 💰 **argent**
 - 🪫 **énergie**
 - 💨 **carbone**
@@ -74,7 +75,7 @@ Cela signifie :
 **NextEco transforme « Combien coûte l'exécution de ceci ? » en une fonctionnalité reproductible et testée dans le dépôt.**
 
 ### ⚠️ Problème / Opportunité
-- La plupart des dépôts sont livrés sans aucune donnée honnête sur les coûts — ni argent, ni énergie, ni carbone.
+- La plupart des dépôts sont livrés sans aucune donnée honnête sur les coûts — ni temps, ni argent, ni énergie, ni carbone.
 - Les agents IA interrogés naïvement inventent des chiffres vraisemblables avec une fausse confiance.
 - Les équipes ne découvrent généralement le manque que lorsqu'un opérateur demande : *« Combien coûte réellement l'exécution de ce logiciel ? »*
 
@@ -200,8 +201,9 @@ NextEco suit une doctrine simple :
 
 Le coût est traité comme une métrique logicielle, au même titre que la correction, la latence, la mémoire et la fiabilité.
 
-Cela comprend au moins trois dimensions :
+Cela comprend au moins quatre dimensions :
 
+- ⏱️ **temps**
 - 💰 **argent**
 - 🪫 **énergie**
 - 💨 **carbone**
@@ -255,10 +257,34 @@ Ce n'est pas une faiblesse, c'est de l'hygiène scientifique.
 
 ## Exemple de schéma
 
-Un fichier `cost_of_running.yaml` typique peut ressembler à ceci :
+Vous définissez le contexte matériel d'exécution et l'échelle de travail dans un fichier `cost_of_running.yaml.example` que les utilisateurs copient, modifient et enregistrent sous `cost_of_running.yaml` :
+
+```yaml
+deployment:
+  provider: "unknown"        # ex : aws / gcp / azure / oracle / on-prem / local / unknown
+  instance_type: "unknown"   # ex : m2-pro, p3.2xlarge, a2-highgpu-1g
+  region: "unknown"          # ex : eu-west-1, us-central1, local
+  country: "France"          # La définition explicite utilisée pour les tables de carbone/électricité
+
+workload:
+  type: "unknown"            # ex : training / inference / batch / api / unknown
+  scale: "unknown"           # ex : one-off / daily / continuous / 1M_requests_month
+```
+
+Un fichier `cost_of_running.yaml` généré intègre cette base et peut ressembler à ceci :
 
 ```yaml
 date_updated: YYYY-MM-DD
+
+deployment:
+  provider: "on-prem"
+  instance_type: "custom-server"
+  region: "local"
+  country: "France"
+
+workload:
+  type: "inference"
+  scale: "daily"
 
 unit_of_work:
   name: "une invocation CLI"

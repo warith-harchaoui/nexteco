@@ -9,8 +9,9 @@ NextEco makes the **cost of running** visible inside a repository.
 
 NextEco is an **agent-ready engineering framework** that adds a reproducible, test-backed **Cost of Running** feature to any codebase.
 
-It helps teams estimate and document the running cost of software across three dimensions:
+It helps teams estimate and document the running cost of software across four dimensions:
 
+- ⏱️ **time**
 - 💰 **money**
 - 🪫 **energy**
 - 💨 **carbon**
@@ -74,7 +75,7 @@ That means:
 **NextEco turns “What does this cost to run?” into a reproducible, test-backed repository feature.**
 
 ### ⚠️ Problem / Opportunity
-- Most repos ship with zero honest cost data — no money, no energy, no carbon.
+- Most repos ship with zero honest cost data — no time, no money, no energy, no carbon.
 - AI agents asked naively invent plausible-looking numbers with false confidence.
 - Teams usually discover the gap only when an operator asks: *“What does this actually cost to run?”*
 
@@ -200,8 +201,9 @@ NextEco follows a simple doctrine:
 
 Cost is treated as a software metric, alongside correctness, latency, memory and reliability.
 
-That includes at least three dimensions:
+That includes at least four dimensions:
 
+- ⏱️ **time**
 - 💰 **money**
 - 🪫 **energy**
 - 💨 **carbon**
@@ -255,10 +257,34 @@ That is not a weakness, it is scientific hygiene.
 
 ## Example schema
 
-A typical `cost_of_running.yaml` may look like this:
+You define the physical runtime and scale context in a `cost_of_running.yaml.example` file that users copy, edit, and save as `cost_of_running.yaml`:
+
+```yaml
+deployment:
+  provider: "unknown"        # e.g., aws / gcp / azure / oracle / on-prem / local / unknown
+  instance_type: "unknown"   # e.g., m2-pro, p3.2xlarge, a2-highgpu-1g
+  region: "unknown"          # e.g., eu-west-1, us-central1, local
+  country: "France"          # The explicit definition used for grid carbon/electricity tables
+
+workload:
+  type: "unknown"            # e.g., training / inference / batch / api / unknown
+  scale: "unknown"           # e.g., one-off / daily / continuous / 1M_requests_month
+```
+
+A generated `cost_of_running.yaml` integrates this base and may look like this:
 
 ```yaml
 date_updated: YYYY-MM-DD
+
+deployment:
+  provider: "on-prem"
+  instance_type: "custom-server"
+  region: "local"
+  country: "France"
+
+workload:
+  type: "inference"
+  scale: "daily"
 
 unit_of_work:
   name: "one CLI invocation"
