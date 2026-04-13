@@ -228,15 +228,16 @@ $$
 \text{CO}_2\text{e}_{\text{g}} = E_{\text{kWh}} \times I_{\text{gCO}_2\text{e/kWh}}
 $$
 
+
 | Symbol | Meaning | Unit |
 |---|---|---|
-| $E_{\text{kWh}}$ | Energy consumed | kWh |
-| $t_{\text{h}}$ | Wall-clock runtime | hours |
-| $P_{\text{kW}}$ | Average power draw | kW |
-| $C_{\text{USD}}$ | Local compute electricity cost | USD |
-| $p_{\text{USD/kWh}}$ | Electricity price | USD / kWh |
-| $\text{CO}_2\text{e}_{\text{g}}$ | Carbon footprint | g CO₂e |
-| $I_{\text{gCO}_2\text{e/kWh}}$ | Grid carbon intensity | g CO₂e / kWh |
+| $E_{\mathrm{kWh}}$ | Energy consumed | kWh |
+| $t_{\mathrm{h}}$ | Wall-clock runtime | hours |
+| $P_{\mathrm{kW}}$ | Average power draw | kW |
+| $C_{\mathrm{USD}}$ | Local compute electricity cost | USD |
+| $p_{\mathrm{USD}/\mathrm{kWh}}$ | Electricity price | USD / kWh |
+| $\mathrm{CO_2e}_{\mathrm{g}}$ | Carbon footprint | g CO₂e |
+| $I_{\mathrm{g\ CO_2e}/\mathrm{kWh}}$ | Grid carbon intensity | g CO₂e / kWh |
 
 The point is not sophistication.  
 The point is **clarity, auditability and testability**.
