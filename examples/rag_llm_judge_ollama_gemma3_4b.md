@@ -1,9 +1,9 @@
-# Cost of Running — Example: RAG + LLM-as-Judge (Local Ollama · Gemma 3 4B)
+# Cost of Running — Example: RAG + LLM-as-Judge (Local Ollama · Gemma3:4b)
 
-> **This is a reference example** showing what a `## Cost of Running` README section looks like for a RAG pipeline running **entirely on local hardware** using Ollama with `gemma3:4b`. Copy, adapt, and replace the placeholder numbers with your own measurements.
+> **This is a reference example** showing what a `## Cost of Running` README section looks like for a RAG pipeline running **entirely on local hardware** using Ollama with `Gemma3:4b`. Copy, adapt, and replace the placeholder numbers with your own measurements.
 
 **Architecture assumed:**
-- User query → local embedding model (`mxbai-embed-large` via Ollama) → local FAISS vector store → `gemma3:4b` answer generation → `gemma3:4b` judge evaluation
+- User query → local embedding model (`mxbai-embed-large` via Ollama) → local FAISS vector store → `Gemma3:4b` answer generation → `Gemma3:4b` judge evaluation
 - **No external API calls.** All inference is local via Ollama.
 - Hardware: Apple M2 Pro MacBook Pro, 16 GB unified memory, macOS 14
 
@@ -15,7 +15,7 @@
 
 ## Cost of Running
 
-**Canonical unit of work:** one end-to-end evaluated RAG query — local embedding, retrieval, answer generation (Gemma 3 4B), and LLM judge evaluation (Gemma 3 4B).
+**Canonical unit of work:** one end-to-end evaluated RAG query — local embedding, retrieval, answer generation (Gemma3:4b), and LLM judge evaluation (Gemma3:4b).
 
 This is the unit a developer or evaluator invokes when testing the pipeline against one question. It is the most meaningful unit because it exercises every cost driver and all inference is local.
 
@@ -40,8 +40,8 @@ Typical query: $0.000038 (local) vs $0.0103 (GPT-4o) — local is **~270× cheap
 |---|---|---|---|---|---|---|
 | embedding | `mxbai-embed-large` (local) | 30 | 128-dim vector | 0.1 s | — | 0.1 s |
 | FAISS retrieval | local | — | — | — | — | 0.05 s |
-| generation | `gemma3:4b` (Ollama) | 1 400 | 350 | 7.8 s | 17.5 s | 25.3 s |
-| judge | `gemma3:4b` (Ollama) | 750 | 200 | 4.2 s | 10.0 s | 14.2 s |
+| generation | `Gemma3:4b` (Ollama) | 1 400 | 350 | 7.8 s | 17.5 s | 25.3 s |
+| judge | `Gemma3:4b` (Ollama) | 750 | 200 | 4.2 s | 10.0 s | 14.2 s |
 | **total** | | **2 180** | **550** | **12.0 s** | **27.5 s** | **~41 s** |
 
 **Throughput assumptions (estimated, Apple M2 Pro):**
@@ -58,8 +58,8 @@ Typical query: $0.000038 (local) vs $0.0103 (GPT-4o) — local is **~270× cheap
 |---|---|---|---|---|
 | embedding | `mxbai-embed-large` | 30 | 128-dim vector | 0.1 s |
 | FAISS retrieval | local | — | — | 0.05 s |
-| generation | `gemma3:4b` | 3 550 | 600 | 49.8 s |
-| judge | `gemma3:4b` | 1 100 | 400 | 26.1 s |
+| generation | `Gemma3:4b` | 3 550 | 600 | 49.8 s |
+| judge | `Gemma3:4b` | 1 100 | 400 | 26.1 s |
 | **total** | | **4 680** | **1 000** | **~76 s** |
 
 *(Actual measured was 82 s — the 6 s difference is attributed to model loading variance and system scheduling.)*
@@ -70,8 +70,8 @@ Typical query: $0.000038 (local) vs $0.0103 (GPT-4o) — local is **~270× cheap
 
 | Assumption | Value | Status | Source |
 |---|---|---|---|
-| Gemma 3 4B prefill speed | 180 tokens/sec | estimated | Ollama community benchmarks, Apple M2 Pro, April 2025 |
-| Gemma 3 4B generation speed | 20 tokens/sec | estimated | Ollama community benchmarks, Apple M2 Pro, April 2025 |
+| Gemma3:4b prefill speed | 180 tokens/sec | estimated | Ollama community benchmarks, Apple M2 Pro, April 2025 |
+| Gemma3:4b generation speed | 20 tokens/sec | estimated | Ollama community benchmarks, Apple M2 Pro, April 2025 |
 | Hardware power draw | 28 W (inference) / 12 W (idle) | estimated | Apple M2 Pro TDP profile; TODO: validate with powermetrics |
 | Electricity price | $0.12 / kWh | estimated | EU average residential, 2024 |
 | Carbon intensity | 400 gCO₂e / kWh | estimated | global average, Our World in Data 2023 |
@@ -90,7 +90,7 @@ Typical query: $0.000038 (local) vs $0.0103 (GPT-4o) — local is **~270× cheap
 
 - Vector DB infrastructure cost (local in-memory FAISS; no recurring cost)
 - Document ingestion and indexing cost (one-time)
-- Model download bandwidth (one-time; `gemma3:4b` ~2.5 GB via Ollama)
+- Model download bandwidth (one-time; `Gemma3:4b` ~2.5 GB via Ollama)
 - Development, testing, and evaluation infrastructure cost
 - Cooling overhead (not separately measurable without datacenter-grade tools)
 
@@ -116,7 +116,7 @@ All formulas and assumptions are in `cost_of_running.yaml`. The README section i
 # Run all cost model tests
 pytest tests/test_cost_of_running.py -v
 
-# Benchmark end-to-end pipeline (requires Ollama running locally with gemma3:4b pulled)
+# Benchmark end-to-end pipeline (requires Ollama running locally with Gemma3:4b pulled)
 pytest tests/test_benchmark_rag_pipeline.py --benchmark-only
 
 # Measure actual power draw during inference (macOS only)
@@ -131,7 +131,7 @@ python scripts/update_cost_of_running.py
 
 **TODOs:**
 - `TODO: run powermetrics during a typical query and record actual power draw to replace the 28W estimate`
-- `TODO: benchmark actual prefill and generation throughput on target hardware (gemma3:4b via Ollama)`
+- `TODO: benchmark actual prefill and generation throughput on target hardware (Gemma3:4b via Ollama)`
 - `TODO: validate token counts by logging Ollama API usage for 10 representative queries`
 - `TODO: profile with scripts/profile_rag_pipeline.py and identify if embedding or LLM inference is the CPU hotspot`
 - `TODO: test on Linux hardware (powertop instead of powermetrics) and update carbon figures`
@@ -149,8 +149,8 @@ unit_of_work:
   name: "one end-to-end evaluated RAG query (fully local)"
   description: >
     A single user question processed through the full local pipeline:
-    Ollama embedding, FAISS retrieval, Gemma 3 4B answer generation,
-    and Gemma 3 4B judge evaluation.
+    Ollama embedding, FAISS retrieval, Gemma3:4b answer generation,
+    and Gemma3:4b judge evaluation.
   rationale: >
     This is what a developer or evaluator triggers when testing the
     pipeline. Running fully locally, it exercises every cost driver
@@ -216,15 +216,15 @@ assumptions:
   runtime:
     source: "estimated"
     notes:
-      - "Prefill: ~180 tokens/sec on Apple M2 Pro with Ollama gemma3:4b (community benchmarks)."
-      - "Generation: ~20 tokens/sec on Apple M2 Pro with Ollama gemma3:4b (community benchmarks)."
+      - "Prefill: ~180 tokens/sec on Apple M2 Pro with Ollama Gemma3:4b (community benchmarks)."
+      - "Generation: ~20 tokens/sec on Apple M2 Pro with Ollama Gemma3:4b (community benchmarks)."
       - "TODO: validate with pytest-benchmark on target hardware with Ollama running."
 
 scenarios:
   - name: "small"
     description: "Short query, 3 retrieved chunks (~700-token context), no re-ranking."
     drivers:
-      - "Two local Gemma 3 4B inference calls (generation + judge), short context"
+      - "Two local Gemma3:4b inference calls (generation + judge), short context"
     per_unit:
       runtime_s: 24
       energy_kwh: 0.000187
@@ -247,7 +247,7 @@ scenarios:
   - name: "typical"
     description: "Medium query, 5 retrieved chunks (~1 400-token context), no re-ranking."
     drivers:
-      - "Two local Gemma 3 4B inference calls (generation + judge), medium context"
+      - "Two local Gemma3:4b inference calls (generation + judge), medium context"
     per_unit:
       runtime_s: 41
       energy_kwh: 0.000319
@@ -270,7 +270,7 @@ scenarios:
   - name: "heavy"
     description: "Long query, 10 retrieved chunks (~3 500-token context), long output."
     drivers:
-      - "Two local Gemma 3 4B inference calls (generation + judge), large context"
+      - "Two local Gemma3:4b inference calls (generation + judge), large context"
     per_unit:
       runtime_s: 82
       energy_kwh: 0.000683
@@ -297,7 +297,7 @@ inclusions:
 
 exclusions:
   - "Local FAISS vector store storage (static, not a per-query cost)"
-  - "Model download bandwidth (one-time, ~2.5 GB for gemma3:4b)"
+  - "Model download bandwidth (one-time, ~2.5 GB for Gemma3:4b)"
   - "Document ingestion and indexing cost (one-time)"
   - "Development and evaluation infrastructure"
 
