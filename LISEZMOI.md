@@ -55,7 +55,7 @@ L'agent audite votre dépôt et construit la couche d'estimation des coûts dire
 
 C'est le problème que NextEco résout.
 
-> **Traiter l'estimation des coûts comme de l'ingénierie, pas comme de la narration.**
+> **Traiter l'estimation des coûts comme de l'ingénierie, pas comme de l'administratif ou du marketing.**
 
 Cela signifie :
 
