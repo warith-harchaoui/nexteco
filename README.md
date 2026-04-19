@@ -108,7 +108,7 @@ It is a lightweight developer tool plus an agent workflow.
 
 ### In the embedded skill
 
-- trigger-aware `SKILL.md`
+- trigger-aware [SKILL.md](skill/nexteco/SKILL.md)
 - progressive-disclosure references
 - reusable templates and helper scripts
 - a Claude-style workflow for creating or improving a `cost_of_running` subsystem directly inside another repo
@@ -480,7 +480,7 @@ Head of AI at [NEXTON](https://nexton-group.com)
 This project grew out of discussions with:
 
 - [Yann Lechelle](https://www.linkedin.com/in/ylechelle), leader and co-founder of [probabl.ai](https://probabl.ai)
-- [Laurent Panatanacce](https://www.linkedin.com/in/panatanacce), mentor in business and AI and AI Business Enabler at [NEXTON](https://nexton-group.com)
+- [Laurent Panatanacce](https://www.linkedin.com/in/panatanacce), AI Business Enabler at [NEXTON](https://nexton-group.com)
 
 ---
 
