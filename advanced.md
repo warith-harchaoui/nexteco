@@ -171,7 +171,7 @@ Tests must protect the subsystem from silent drift.
 
 ## Benchmark and profile design
 
-Favor simple commands that a maintainer can understand quickly.
+Favor  commands that a maintainer can understand quickly.
 
 Examples of acceptable outputs:
 

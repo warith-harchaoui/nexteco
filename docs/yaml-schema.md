@@ -41,7 +41,7 @@ Assumptions should be explicit and should usually carry:
 
 ## Scenarios
 
-Use a single `scenario` for a simple model.
+Use a single `scenario` for a  model.
 Use `scenarios` when the repo truly benefits from multiple cases.
 
 ## Totals

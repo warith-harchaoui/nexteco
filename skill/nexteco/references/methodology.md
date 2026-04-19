@@ -33,7 +33,7 @@ electricity_cost_usd = energy_kwh × electricity_price_usd_per_kwh
 carbon_gco2e = energy_kwh × grid_carbon_intensity_gco2e_per_kwh
 ```
 
-These formulas are intentionally simple.
+These formulas are intentionally .
 The hard part is usually not algebra.
 The hard part is choosing the right unit of work, separating measured from assumed values, and keeping provenance visible.
 

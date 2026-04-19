@@ -3,7 +3,7 @@
 Use these labels consistently:
 
 - `measured`: directly measured and documented
-- `estimated`: derived from visible assumptions or simple formulas
+- `estimated`: derived from visible assumptions or  formulas
 - `placeholder`: temporary value kept visible so the structure remains usable
 - `TODO`: human validation still required
 

@@ -9,15 +9,12 @@
 
 ![NextEco](assets/logo.png)
 
-
-**NextEco** helps any software repository answer one practical engineering question early and honestly:
-
-> **What does the code cost to run in 💰 money, ⏱️ time, 🪫 energy, and 💨 CO2?**
+NextEco estimates cost of running code in 💰 money, ⏱️ time, 🪫 energy, and 💨 CO2.
 
 Not as vague storytelling.  
 As a **small, repository-native subsystem** that teams can review, validate, benchmark, and maintain.
 
-NextEco is built around a simple pattern:
+NextEco is built around a pattern:
 
 - one **canonical unit of work**
 - one **YAML source of truth**
@@ -288,7 +285,7 @@ It is especially relevant for:
 
 ## Design principles
 
-NextEco follows a simple doctrine:
+NextEco follows a doctrine:
 
 1. choose one canonical unit of work
 2. keep one YAML source of truth
@@ -319,7 +316,7 @@ The model is expressed per **canonical unit of work** across four dimensions:
 - 🪫 **energy**
 - 💨 **CO2**
 
-The math is intentionally simple and auditable:
+The math is intentionally and auditable:
 
 $$
 E_{kWh} = t_h \times P_{kW}

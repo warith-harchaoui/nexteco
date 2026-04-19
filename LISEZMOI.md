@@ -9,14 +9,11 @@
 ![NextEco](assets/logo-fr.png)
 
 
-**NextEco** aide tout dépôt logiciel à répondre honnêtement et de manière précoce à une question d'ingénierie pratique :
+NextEco estime le coût d'exécution du code en 💰 argent, ⏱️ temps, 🪫 énergie et 💨 CO2.
 
-> **Que coûte l'exécution du code en 💰 argent, ⏱️ temps, 🪫 énergie et 💨 CO2 ?**
+Pas sous forme de storytelling, mais comme un **petit sous-système natif au dépôt** que les équipes peuvent réviser, valider, évaluer (benchmarker) et maintenir.
 
-Pas sous forme d'une simple histoire narrative.  
-Mais comme un **petit sous-système natif au dépôt** que les équipes peuvent réviser, valider, évaluer (benchmarker) et maintenir.
-
-NextEco s'articule autour d'un modèle simple :
+NextEco s'articule autour d'un modèle :
 
 - une **unité de travail canonique**
 - une **source de vérité YAML**
@@ -149,7 +146,7 @@ Les logiciels de pointe subissent de manière incessante un fort accroissement t
 - des modèles de réseaux vastes requérant en eux mêmes d'un stockage absolu d'une taille considérable (et mémoire).
 - la particularité de la sensibilité liée géographiquement pour les empreintes écologiques liés aux data-centers en consommation de Co2.
 
-Au lieu que les dépôts fournissent logiquement dans le propre centre d'informations une réponse pour une simple question à une organisation ou d'ingénierie technique pure posée sous ses plus infimes niveaux :
+Au lieu que les dépôts fournissent logiquement dans le propre centre d'informations une réponse pour une  question à une organisation ou d'ingénierie technique pure posée sous ses plus infimes niveaux :
 
 > **Mais quel va être de bout en bout l'évaluation en calcul final du plus représentatif et majeur pan de l'application (unité de mesure globale de ce programme) ?**
 
@@ -171,7 +168,7 @@ Mais cela exclut toutes tentatives :
 
 Il dresse avant tout ce qui n'est **absolument pas** un panel à données du type des tableaux de bord (Dashboard).  
 Il n'est d’aucune manière une solution proposée via SaaS payant.  
-Il s'éloigne grandement du pur discours de théâtre lié aux apparences politiques d'investissements de critères sociaux ou financiers pour un simple "look écologique public" des sociétés du concept du "théâtre d'ESG" très vendeur et répandu...  
+Il s'éloigne grandement du pur discours de théâtre lié aux apparences politiques d'investissements de critères sociaux ou financiers pour un  "look écologique public" des sociétés du concept du "théâtre d'ESG" très vendeur et répandu...  
 Il n'est par ailleurs et au demeurant tout bonnement pas non l'invention sans aucun fondement, que génèrerait via hallucinations l'information faussée via processus algorithmique flou des LLMs ou outils d'intelligences virtuels.
 
 Il s'acquitte finalement en une interface de petite architecture d'outils et workflows natif respectueuse pour tout agents ou intelligences qui aideront nos dev à en tirer les extractions complètes du système au cœur de leurs architectures de projets (Workspace).
@@ -265,7 +262,7 @@ python scripts/benchmark_render.py cost_of_running.yaml --iterations 20 --json
 ## Les cibles précises quant aux publics d'utilisations du logiciel :
 
 NextEco doit en lui-même concerner très explicitement la dynamique de chaque membre afin d'introduire : **Le processus d'évaluation financière ou empreintes en énergie d'infrastructure du code source du programme vers tous ces différents dépôts**. 
-Et surtout de manière à le fusionner organiquement sans adresser en aparté une simple vision de management, aux actes normaux et incombant de tout ingénieurs de code classique en évitant d'exclure cette variable majeure. Afin qu'elle devienne un acte pure, visible depuis cet acte initial, pour que cette variable majeure intègre finalement pleinement en ses lignes initiales de développement, les "coûts des exécutions à prévoir".  Le temps d'esquiver toutes autres "discussions formelles ou théorétiques annexes avec la gestion comptable purement séparée."   
+Et surtout de manière à le fusionner organiquement sans adresser en aparté une  vision de management, aux actes normaux et incombant de tout ingénieurs de code classique en évitant d'exclure cette variable majeure. Afin qu'elle devienne un acte pure, visible depuis cet acte initial, pour que cette variable majeure intègre finalement pleinement en ses lignes initiales de développement, les "coûts des exécutions à prévoir".  Le temps d'esquiver toutes autres "discussions formelles ou théorétiques annexes avec la gestion comptable purement séparée."   
 
 Cet outil prouvera facilement tout sens pertinent aux équipes lorsqu'on abordera les points ou buts décisifs :
  
@@ -292,7 +289,7 @@ Suivant une application directe, NextEco limite l'abstraction ou complexités du
  
 1. Sélection stricte unique d'un but initial d'évaluation précis "Une méthode unique par tâche ciblée du process du produit global ou application / ou fonction précise pure à la demande ("Unit Of Work")".
 2. Un document exclusif pur ("YAML source", ou base absolue source sans duplicités pour éviter des contradictions d'évaluations et l'obsolescence et désaccords algorithmiques internes de tous systèmes).  
-3. Une lecture et rapport lisible rendu clair ("Markdown") ne s'extirpant de nul part sauf par le bais de conversion simple depuis ce document (YAML = Fichier de vérités sans aucun autre ajout externe d'interprêtations subjectives). 
+3. Une lecture et rapport lisible rendu clair ("Markdown") ne s'extirpant de nul part sauf par le bais de conversion  depuis ce document (YAML = Fichier de vérités sans aucun autre ajout externe d'interprêtations subjectives). 
 4. Assumer au mieux l'implémentation de contrôles sur toutes mathématiques arithmétiques pour ne concevoir absolument à cet égard de lier de l'erreur à la conception source des analyses par "Le Validation tool process du module de NextEco".  
 5. Favoriser ou encourager n'importe quand la possibilité possible ou disponible selon la mesure ou des outils externes (Sondes physiques OS ou logicielle), d'y tester ce temps sur leurs métadonnées temporelles du process exact. De là est l'un des rôles de ses modules "benchmark tests".
 6. Une contrainte de l'ordre sans faille à ne "jamais s'autoriser la plus infime de toutes confusions de langage possible : Mélanger par approximation mathématique avec certitudes, les cas d'une d'évaluation obtenue ou mesurée au travers de la valeur pure empirique récupéré nativement des métaux des outils de métrologie exact (Power Watts Metrics hardware outputs probes), contre l'incorporation vis-à-vis purement sur un manque des options natives au OS de devoir avoir décrété obligatoirement pour une issue logicielle formelle : d’« Estimer la mesure sous analyse du temps x sa demande constructeur théorique absolue, calculs etc. par exemple) ».   
@@ -302,7 +299,7 @@ Les taxinomies d'honnête absolue se classifient centralement par 4 constantes r
 - La constante à valeur réelle formelle " `measuré` " (Valeur absolue provenant empiriquement pour ne laisser place a toutes variations théoriques).   
 - La constante sans issue formelle par outil sonde mais issue par de puissantes déductions arithmétique des temps pris sous un système pure de type calcul d'emprunte globale `estimé`. (Déduit).
 - La contrainte assumée à une déclaration d'anomalie transitoire par son rôle explicite d'avertissement et trace de donnée non quantifiable lors du rapport sans aucune analyse au fait. (Constante : `placeholder`).
-- Le rôle de substitution lié explicitement d'assumer tout travail au code qui sera incomplet au module d'origine par simple variable (`À FAIRE / TODO`).
+- Le rôle de substitution lié explicitement d'assumer tout travail au code qui sera incomplet au module d'origine par  variable (`À FAIRE / TODO`).
   
 > **Qu'un manque assumé d'une mention pure sous trace transitoire ("un placeholder sans masque") soit, ne l'ignore ou dépasse très honnêtement qu'il vaut mieux cela que d'inventer par affirmation mensongère de la donnée "à blanc" pure par confort aux audits par un LLM.**    
 
@@ -310,7 +307,7 @@ Les taxinomies d'honnête absolue se classifient centralement par 4 constantes r
 
 ## Sa méthode détaillée en vue rapide d'une Minute: 
 
-NextEco apporte par déduction aux aspects financiers structurels une visibilité qui rejoint ses rangs de simples variables propres (Logicielle) de l'analyse tout simplement à l'immatriculation d'exécution d'un processus : par calcul d'exécution absolu exact avec le reste de la "Latence globale au test unitaire", "la mémoire affecté pure d'un espace Ram", des requêtes par codes "la fiabilité absolu des traitements algorithmiques". 
+NextEco apporte par déduction aux aspects financiers structurels une visibilité qui rejoint ses rangs de  variables propres (Logicielle) de l'analyse tout ment à l'immatriculation d'exécution d'un processus : par calcul d'exécution absolu exact avec le reste de la "Latence globale au test unitaire", "la mémoire affecté pure d'un espace Ram", des requêtes par codes "la fiabilité absolu des traitements algorithmiques". 
 
 Le rendu se découpe par modélisation propre du process "D'une trace au concept de la fameuse ("Unité de travail unique / Request process target Unit)" via ces traces ci unitaire découpé aux formats :
  
@@ -352,7 +349,7 @@ Dès lorsqu'une trace possible "empirique pure ou absolue physique matérielle d
 - via la commande directe de trace : `sudo powertop` ou à l'option OS des distributions à bas niveau sous `sudo turbostat` sur l’environnement pour systèmes Linux.
 - et face au besoin par application OS au sondage lié `powercfg` des outils sous interface `perfmon` ou natif `typeperf` propres au registre d'observations de trace aux structures limitantes des environnements sous (Windows Microsoft) (avec bien possible et sûrement sous obligations ou permissions d'agir de son processus d'environnement à un besoin du lancement de commandes d'escalades vers autorisation via ("Administrateur local compte pur d'environnement process")).
 
-Face au fait ou le calcul pur ne parvient pas à obtenir avec précision sur matériel ces informations natives en directe mesures d'outils liés d’environnements. NextEco vous oblige à l'utilisation du mécanisme pour de ces "Estimations visibles claires", mais d’introduire explicitement sans masque via ses fameuses indications documentaires à utiliser (Variables non pures pour d’absence factuelles des outils de logs matériel OS ou manque par ignorance d'autorisation). La présence sans fards pour y intégrer ces "Variable trace : Estimé pure", sans omettre formellement tout autre outil au besoin via (la fonction "D'espace factice ou `placeholders`" liés à un manquement passif au moment T) ou l'usage pure à des trace de rattrapage par simple `À FAIRE (TODO)` 
+Face au fait ou le calcul pur ne parvient pas à obtenir avec précision sur matériel ces informations natives en directe mesures d'outils liés d’environnements. NextEco vous oblige à l'utilisation du mécanisme pour de ces "Estimations visibles claires", mais d’introduire explicitement sans masque via ses fameuses indications documentaires à utiliser (Variables non pures pour d’absence factuelles des outils de logs matériel OS ou manque par ignorance d'autorisation). La présence sans fards pour y intégrer ces "Variable trace : Estimé pure", sans omettre formellement tout autre outil au besoin via (la fonction "D'espace factice ou `placeholders`" liés à un manquement passif au moment T) ou l'usage pure à des trace de rattrapage par  `À FAIRE (TODO)` 
 
 Ce rapport d'absence absolue n'inflige ou reflète sans exception "aucune contrainte rattaché pour un processus ou faiblesses". Ce principe se veut rigoureusement strict afin d'assumer tout travail : **Une discipline et d'outils et normes propre des processus techniques scientifique (Science hygiéniquement acceptable sur son ingénierie process) !**
 
@@ -360,7 +357,7 @@ Ce rapport d'absence absolue n'inflige ou reflète sans exception "aucune contra
 
 ## Liens logiques informatifs d'Exploration documentaire pour le dépôt entier.
 
-Le document pur principal dit fichier 'README.md' qu'héberge d'en deçà le fichier s'oriente sous l'intention d'approche simple au monde "Grand Public ou Découvertes larges d'utilisateurs d'Informatique des processus au démarrage facile" de manière large absolue. 
+Le document pur principal dit fichier 'README.md' qu'héberge d'en deçà le fichier s'oriente sous l'intention d'approche  au monde "Grand Public ou Découvertes larges d'utilisateurs d'Informatique des processus au démarrage facile" de manière large absolue. 
 
 Mais à la suite d’informations spécifiques poussés lié sans restrictions par domaine pur (Lecteurs techniques, Experts en Auditeur de développement informatiques ou structures complexes intégrées LLM IA System d'IDE ou flux automatique Agents...): 
 
@@ -454,7 +451,7 @@ L'intention et projet doit en tant qu'évolution garder le cadre pure à rester 
 - Une fonction affûtée dite  (Sharp logic processes structure approach design code rules process tool software) à outil tranchant et net!
 - Auditable de l'ensemble absolue pure par contrôle (Transparence mathématique de ses tracés absolus).  
 - Très monotone ("Boring system design pattern processes format tools architecture structure ") dans la définition extrêmement flatteuses du fond d’une structure qui apporte certitudes de fond de "solidité et ennuyante mais par l'extrême fiabilité pure qui s'oublie et non déroutante".  
-- Purement honnête à la transparence vis de tous signalement ou données qui seraient liées, de ces probabilité non connues et de l'incertitudes empiriques calculé formel pure et simple liée de manques (Honnêteté absolue "The Honesty Taxonomy Architecture Principles Documentation"). 
+- Purement honnête à la transparence vis de tous signalement ou données qui seraient liées, de ces probabilité non connues et de l'incertitudes empiriques calculé formel pure et  liée de manques (Honnêteté absolue "The Honesty Taxonomy Architecture Principles Documentation"). 
 
 En d'autre terme, il a été décrété un amour profond des outils pérennes, utiles par un fond d’ingénierie solide, pur et robuste, qu'admirer ou à la présentation d'une représentation de surface éphémère d'une apparence de polissage lisse mais "vendeur très faussement spectaculaire et éphémère" (du Théâtre virtuel) !   
 

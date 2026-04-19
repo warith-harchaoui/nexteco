@@ -114,7 +114,7 @@ An honest placeholder is better than a fabricated number.
 
 ## Method
 
-Use simple, auditable formulas.
+Use , auditable formulas.
 
 For local compute when direct measurement is unavailable:
 
