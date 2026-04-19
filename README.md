@@ -24,7 +24,7 @@ That makes cost-of-running a normal engineering concern, alongside correctness, 
 
 ---
 
-## The important questions, answered early
+## Context and Motivation
 
 ### Is this for Python only?
 
@@ -114,20 +114,18 @@ The YAML file exists so the result can live in the repository, be reviewed in pu
 
 ### Why would I use this instead of a spreadsheet?
 
-Because a spreadsheet usually stores results, while **NextEco connects those results to the actual behavior of the repository**.
+You should consider our analysis as a playable movie, not a static photograph because a spreadsheet usually stores results, while **NextEco connects those results to the actual behavior of the repository**.
 
-In practice, NextEco supports a lightweight form of **dynamic program analysis**:
+In practice, NextEco supports a lightweight form of **dynamic program analysis** helping you:
 
-1. you define a canonical unit of work
-2. you run or benchmark that unit of work
-3. you collect runtime evidence from the program or its environment
-4. you combine those measurements with explicit pricing, power, and carbon assumptions
-5. you validate the arithmetic
-6. you render the result into repository documentation
+1. define a canonical unit of work
+2. run or benchmark that unit of work
+3. collect runtime evidence from the program or its environment
+4. combine those measurements with explicit pricing, power, and carbon assumptions
+5. validate the arithmetic
+6. render the result into repository documentation
 
-So this is not just “cells with numbers.”
-
-It is a repository-native bridge between:
+So this is not just “cells with numbers.” It is a repository-native bridge between:
 
 - program execution
 - benchmark evidence
