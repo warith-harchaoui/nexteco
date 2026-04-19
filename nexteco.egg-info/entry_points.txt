@@ -1,0 +1,2 @@
+[console_scripts]
+nexteco = nexteco.cli:main

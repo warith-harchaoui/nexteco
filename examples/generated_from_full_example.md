@@ -12,52 +12,71 @@
 
 ## Deployment context
 
-- Provider: unknown
-- Instance type: unknown
-- Region: unknown
-- Country: unknown
-- Operating system: unknown
-- Hardware notes: TODO
+- **provider**: unknown
+- **instance type**: unknown
+- **region**: unknown
+- **country**: unknown
+- **operating system**: unknown
+- **hardware notes**: TODO
 
 ## Assumptions
 
 ### electricity_price_usd_per_kwh
-- value: None
-- unit: USD/kWh
-- status: TODO
-- source_url: TODO
-- retrieved_date: YYYY-MM-DD
-- notes: Usually requires human validation
+
+| Field | Value |
+|---|---|
+| value | — |
+| unit | USD/kWh |
+| status | TODO |
+| source_url | TODO |
+| retrieved_date | YYYY-MM-DD |
+| notes | Usually requires human validation |
 
 ### grid_carbon_intensity_gco2e_per_kwh
-- value: None
-- unit: gCO2e/kWh
-- status: TODO
-- source_url: TODO
-- retrieved_date: YYYY-MM-DD
-- notes: Usually requires geography-aware validation
+
+| Field | Value |
+|---|---|
+| value | — |
+| unit | gCO2e/kWh |
+| status | TODO |
+| source_url | TODO |
+| retrieved_date | YYYY-MM-DD |
+| notes | Usually requires geography-aware validation |
 
 ### average_power_draw_watts
-- value: None
-- unit: W
-- status: TODO
-- notes: May come from powermetrics, powertop, turbostat, perfmon or a justified estimate
+
+| Field | Value |
+|---|---|
+| value | — |
+| unit | W |
+| status | TODO |
+| notes | May come from powermetrics, powertop, turbostat, perfmon or a justified estimate |
 
 ## External API pricing
 
 ### example-api
-- price_per_unit: {'value': None, 'unit': 'USD per unit', 'status': 'TODO', 'source_url': 'TODO', 'retrieved_date': 'YYYY-MM-DD'}
-- usage_per_canonical_unit: {'value': None, 'unit': 'units', 'status': 'TODO'}
-- subtotal_usd: {'value': None, 'status': 'TODO'}
+
+| Metric | Value | Status | Notes |
+|---|---:|---|---|
+| Price per unit | — | TODO | USD per unit |
+| Usage per canonical unit | — | TODO | units |
+| Subtotal USD | — | TODO | source: TODO; retrieved: YYYY-MM-DD |
 
 ## Scenarios
 
 ### default
-- Description: Representative baseline scenario
-- Runtime seconds: {'value': None, 'status': 'TODO'}
-- Local compute: {'energy_kwh': {'value': None, 'status': 'TODO'}, 'electricity_cost_usd': {'value': None, 'status': 'TODO'}, 'carbon_gco2e': {'value': None, 'status': 'TODO'}}
-- External API cost USD: {'value': None, 'status': 'TODO'}
-- Totals: {'total_cost_usd': {'value': None, 'status': 'TODO'}, 'total_carbon_gco2e': {'value': None, 'status': 'TODO'}}
+
+Representative baseline scenario
+
+| Metric | Value | Status | Notes |
+|---|---:|---|---|
+| Runtime seconds | — | TODO | — |
+| Energy kWh | — | TODO | — |
+| Electricity cost USD | — | TODO | — |
+| Carbon gCO2e | — | TODO | — |
+| External API cost USD | — | TODO | — |
+| Total cost USD | — | TODO | — |
+| Total carbon gCO2e | — | TODO | — |
 
 ## Exclusions
 
@@ -66,9 +85,11 @@
 
 ## Output expectations
 
-- generated_files: ['cost_of_running.yaml', 'cost_of_running.md']
-- validation: ['tests for arithmetic coherence', 'tests for synchronization between YAML and Markdown', 'benchmark targeting the canonical unit of work']
-- notes: ['Use the full template when the cost model should survive over time']
+| Field | Value |
+|---|---|
+| generated_files | cost_of_running.yaml, cost_of_running.md |
+| validation | tests for arithmetic coherence, tests for synchronization between YAML and Markdown, benchmark targeting the canonical unit of work |
+| notes | Use the full template when the cost model should survive over time |
 
 ## Notes
 
