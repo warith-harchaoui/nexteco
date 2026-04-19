@@ -13,7 +13,7 @@ Not in vague storytelling terms, but in four concrete dimensions:
 - 💰 **money**
 - ⏱️ **time**
 - 🪫 **energy**
-- 💨 **carbon**
+- 💨 **CO₂**
 
 NextEco exists in **two complementary forms**:
 
@@ -34,7 +34,7 @@ Modern software is increasingly:
 - compute-heavy
 - API-heavy
 - model-heavy
-- geographically sensitive in cost and carbon terms
+- geographically sensitive in cost and CO₂ terms
 
 Yet most repositories still cannot answer a basic engineering question:
 
@@ -260,7 +260,7 @@ The model is expressed per **canonical unit of work** across four dimensions:
 - 💰 **money**
 - ⏱️ **time**
 - 🪫 **energy**
-- 💨 **carbon**
+- 💨 **CO₂**
 
 The math is intentionally simple and auditable:
 
@@ -282,12 +282,12 @@ $$
 | $P_{\mathrm{kW}}$ | Average power draw | kW |
 | $C_{\mathrm{USD}}$ | Local compute electricity cost | USD |
 | $p_{\mathrm{USD}/\mathrm{kWh}}$ | Electricity price | USD / kWh |
-| $\mathrm{CO_2e}_{\mathrm{g}}$ | Carbon footprint | g CO₂e |
-| $I_{\mathrm{g\ CO_2e}/\mathrm{kWh}}$ | Grid carbon intensity | g CO₂e / kWh |
+| $\mathrm{CO_2e}_{\mathrm{g}}$ | CO₂ footprint | g CO₂e |
+| $I_{\mathrm{g\ CO_2e}/\mathrm{kWh}}$ | Grid CO₂ intensity | g CO₂e / kWh |
 The point is not sophistication.  
 The point is **clarity, auditability, and testability**.
 
-For carbon estimation, NextEco can align with Green Algorithms-style reasoning and low-level OS routines such as `powermetrics` on macOS and equivalent tools on Linux and Windows when real measurement is possible.
+For CO₂ estimation, NextEco can align with Green Algorithms-style reasoning and low-level OS routines such as `powermetrics` on macOS and equivalent tools on Linux and Windows when real measurement is possible.
 
 ---
 
@@ -422,7 +422,7 @@ NextEco does not try to replace:
 
 - cloud billing platforms
 - observability suites
-- enterprise carbon accounting systems
+- enterprise CO₂ accounting systems
 
 It solves a narrower problem:
 
