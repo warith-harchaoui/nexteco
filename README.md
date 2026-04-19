@@ -1,72 +1,66 @@
 # NextEco
 
-NextEco makes the **cost of running** visible inside a repository.
-
-[🇺🇸](README.md)&nbsp;[🇫🇷](LISEZMOI.md)
-
-
 ![NextEco](assets/logo.png)
 
-NextEco is an **agent-ready engineering framework** that adds a reproducible, test-backed **Cost of Running** feature to any codebase.
+**NextEco** turns **cost of running** into a small, repository-native engineering subsystem.
 
-It helps teams estimate and document the running cost of software across four dimensions:
+It helps teams make one thing explicit:
+
+> **what does this code actually cost to run?**
+
+Not in vague storytelling terms, but in four concrete dimensions:
 
 - 💰 **money**
 - ⏱️ **time**
 - 🪫 **energy**
 - 💨 **carbon**
 
-using engineering artifacts developers already trust:
+NextEco exists in **two complementary forms**:
 
-- explicit formulas
-- reproducible benchmarks
-- test-driven programming and thus testable outputs
-- version-controlled source files
-- honest handling of uncertainty
+1. **this OSS repository** — for humans, open discussion, code, tests, examples, and releases
+2. **an embedded skill** in [`skill/nexteco/`](skill/nexteco/) — for Claude-style agents and AI-powered IDE workflows
 
-For carbon estimation, NextEco uses transparent, auditable methodology and can be aligned with references such as [Green Algorithms](https://calculator.green-algorithms.org/ai) and low-level OS routines such as `powermetrics` for macOS and equivalent for the other OSes.
+That split is intentional.
 
-This is **not** a dashboard.  
-This is **not** vague ESG theater.  
-This is **not** AI-made-up numbers.
+- the **repository** is the public source of truth
+- the **skill** is the agent-native execution layer
 
-Instead, NextEco helps coding agents wire a cost model directly into your repository so that the result is:
+---
 
+## Why NextEco exists
+
+Modern software is increasingly:
+
+- compute-heavy
+- API-heavy
+- model-heavy
+- geographically sensitive in cost and carbon terms
+
+Yet most repositories still cannot answer a basic engineering question:
+
+> **what is the cost of one representative unit of work?**
+
+What does one request cost?  
+What does one batch job cost?  
+What does one inference cost?  
+What does one training run cost?  
+Which part is local compute, and which part is external API spend?
+
+NextEco helps teams answer those questions with a workflow that is:
+
+- small
+- explicit
 - reviewable
 - reproducible
-- benchmark-backed
-- test-integrated
-- maintainable over time
+- benchmark-aware
+- honest about uncertainty
 
-Paste one prompt into Cursor, Claude Code, Copilot Agent, Antigravity, Windsurf or another agentic IDE.  
-The agent audits your repo and builds the cost-estimation layer directly into the codebase.
+It is **not** a dashboard.  
+It is **not** SaaS.  
+It is **not** ESG theater.  
+It is **not** AI-made-up numbers.
 
-> **What does it actually cost to run my code?**
-
-As software becomes more compute-heavy, model-heavy and API-heavy, teams need to understand the operational footprint of what they ship:
-
-- What does one request cost?
-- What does one job cost?
-- What does one inference cost?
-- What does AI training cost?
-- Where is energy being wasted?
-- Which part is local compute vs external API spend?
-- Which assumptions are measured and which are placeholders?
-
-That is the problem NextEco solves.
-
-> **Treat cost estimation like engineering, not storytelling.**
-
-That means:
-
-- one source of truth
-- one canonical unit of work
-- explicit formulas
-- measurable assumptions
-- benchmark-backed runtime data
-- generated documentation
-- test-driven programming for arithmetic and synchronization
-- honest `TODO`s instead of fake confidence
+It is a lightweight developer tool plus an agent workflow.
 
 ---
 
@@ -74,161 +68,213 @@ That means:
 
 **NextEco turns “What does this cost to run?” into a reproducible, test-backed repository feature.**
 
-### ⚠️ Problem / Opportunity
-- Most repos ship with zero honest cost data — no money, no time, no energy, no carbon.
-- AI agents asked naively invent plausible-looking numbers with false confidence.
-- Teams usually discover the gap only when an operator asks: *“What does this actually cost to run?”*
+### Problem
+- Most repositories ship with no honest cost model at all
+- Naive AI prompting often produces plausible-looking but ungrounded numbers
+- Teams usually discover the gap only when an operator, client, or reviewer asks a very practical question
 
-### 💎 Value proposition
-- Drop one prompt, get a reproducible, test-backed cost model in minutes.
-- Honest by design: a strict taxonomy — **measured / estimated / placeholder / TODO** — prevents hallucinated figures.
-- Works with any agentic tool (Claude Code, Cursor, Copilot Agent, Windsurf…).
+### Value
+- Drop one workflow into a repo, get a reusable cost model
+- Keep assumptions visible instead of hidden
+- Treat cost as an engineering concern, not a marketing narrative
+- Make future maintenance easier for both humans and agents
 
-### 🧪 Secret sauce
-- A single canonical unit of work anchors every number to something measurable.
-- The YAML is the source of truth; the README section is generated from it.
-- Formula-coherent tests catch any drift between the model and the documentation.
-- In-situ benchmarking and profiling with low-level OS routines (powermetrics, etc.)
+### Secret sauce
+- one canonical unit of work
+- one YAML source of truth
+- one generated Markdown report
+- explicit formulas
+- meaningful validation
+- benchmark-aware reasoning
+- honest uncertainty through a strict taxonomy
 
-### 💰 Business model
-- The prompts are the product — free, open, public domain ([The Unlicense](https://unlicense.org)).
-- Cost models produced are source-controlled assets owned by the repo team.
-- No telemetry, no SaaS, no lock-in.
-
-### 📣 Marketing
-- Storytelling: *"What does this actually cost to run?"*
-- Demo: run the prompt on any repo → get an honest cost table in one pass.
-- Positioning: *"An honest placeholder beats a confident lie."*
-
-### 🦅 Competition
-- Hand-written README sections (stale, unverified, untested).
-- Naive AI queries (hallucinated numbers, no taxonomy, no tests).
-- Heavy cost-tracking infrastructure (dashboards, telemetry agents, cloud bills).
+> **An honest placeholder beats a confident lie.**
 
 ---
 
-## Why engineers like it
+## What you get
 
-### Honest
-If the agent does not know a number, it must say so.
+### In the OSS repo
 
-It uses statuses such as:
+- a Python CLI
+- reusable YAML templates
+- Markdown report generation
+- validation logic
+- tests
+- examples
+- docs
+- GitHub-ready project structure
+- an embedded skill package
+
+### In the embedded skill
+
+- trigger-aware `SKILL.md`
+- progressive-disclosure references
+- reusable templates and helper scripts
+- a Claude-style workflow for creating or improving a `cost_of_running` subsystem directly inside another repo
+
+The result is not a one-off report.
+
+It is a **maintainable subsystem**.
+
+---
+
+## Install the CLI
+
+### From source
+
+```bash
+pip install .
+```
+
+### For development
+
+```bash
+pip install -e .[dev]
+pytest
+```
+
+---
+
+## Quick start
+
+### 1. Initialize a model
+
+```bash
+nexteco init --template min
+```
+
+This creates `cost_of_running.yaml`.
+
+### 2. Validate the model
+
+```bash
+nexteco validate cost_of_running.yaml
+```
+
+### 3. Render the report
+
+```bash
+nexteco render cost_of_running.yaml --output cost_of_running.md
+```
+
+---
+
+## CLI reference
+
+### `nexteco init`
+
+Create a starter YAML file.
+
+```bash
+nexteco init --template min --output cost_of_running.yaml
+nexteco init --template full --force
+```
+
+### `nexteco validate`
+
+Validate structure, statuses, arithmetic coherence, and provenance freshness signals.
+
+```bash
+nexteco validate cost_of_running.yaml
+```
+
+### `nexteco render`
+
+Generate a Markdown report from the YAML source of truth.
+
+```bash
+nexteco render cost_of_running.yaml
+nexteco render cost_of_running.yaml --output docs/cost_of_running.md
+```
+
+### Lightweight benchmark helper
+
+A tiny benchmark helper is included for smoke-level performance visibility:
+
+```bash
+python scripts/benchmark_render.py cost_of_running.full.yaml.example --iterations 5
+```
+
+---
+
+## Philosophy
+
+NextEco follows a simple doctrine:
+
+1. **choose one canonical unit of work**
+2. **keep one YAML source of truth**
+3. **generate human-readable Markdown from it**
+4. **test the logic that matters**
+5. **benchmark when warranted**
+6. **never blur measured and estimated values**
+
+The honesty taxonomy is central:
 
 - `measured`
 - `estimated`
 - `placeholder`
 - `TODO`
 
-A cost model becomes reviewable instead of theatrical.
+An honest placeholder beats a confident lie.
+
+---
+
+## Why engineers like it
+
+### Honest
+If the system does not know a number, it must say so.
 
 ### Lightweight
-No dashboards. No SaaS. No lock-in.
-
-Just a small set of files, scripts, tests and documentation inside the repo.
+No dashboards. No SaaS. No lock-in. Just files, scripts, validation, and documentation inside the repo.
 
 ### Test-backed
 If the model says:
 
 ```text
-total_usd = local_compute_usd + external_api_usd
+total_cost_usd = local_compute_cost_usd + external_api_cost_usd
 ```
 
-the repo should contain a test that verifies it.
+the repo should be able to verify that logic.
 
 ### Operationally meaningful
-NextEco forces the agent to choose a **canonical unit of work**, such as:
+NextEco forces the system to choose a **canonical unit of work**, such as:
 
 - one CLI invocation
 - one API request
-- one video processed
-- one training job
-- one report generated
+- one inference
+- one batch job
+- one training run
+- one report generation
 
-Without that anchor, cost tables are usually noise.
-
----
-
-## What you get
-
-Run one prompt and the agent typically creates or updates:
-
-| File | Purpose |
-|---|---|
-| `README.md` | Managed `Cost of Running` section with assumptions, scenarios and method |
-| `cost_of_running.yaml.example` | **Critical:** deployment config template (hardware & location setting) |
-| `cost_of_running.yaml` | Machine-readable source of truth |
-| `scripts/update_cost_of_running.py` | Regenerates the README cost section from YAML |
-| test files | Verify formulas, schema coherence and README sync |
-| benchmark file | Measures the canonical unit of work reproducibly |
-| profiling helper(s) | Explain where cost comes from *(advanced only)* |
-| `AGENTS.md` | Maintenance hints for future coding agents, if present |
-
-The result is not a report.  
-It is a **maintainable subsystem**.
-
----
-
-## Two modes
-
-NextEco ships with two prompt depths:
-
-- [`core.md`](core.md): default, test-first cost estimation workflow
-- [`advanced.md`](advanced.md): deeper profiling and hardware-aware metrology
-
-### Use Core when
-
-- you want the fastest path to something useful
-- you care more about reliable structure than deep profiling
-- you want honest cost estimation in any repo
-
-### Use Advanced when
-
-- runtime or energy is a serious product concern
-- a benchmark already exists
-- you want to explain where cost comes from, not just report totals
-- you need deeper profiling or hardware-specific metrology
-
-When in doubt, start with [`core.md`](core.md).
+Without that anchor, cost discussions usually become noise.
 
 ---
 
 ## Methodology
 
-NextEco follows a simple doctrine:
+NextEco treats cost as a software metric, alongside correctness, latency, memory, and reliability.
 
-> A. Tests **prove** the deliverable works  
-> B. AI **identifies** the cost and its canonical unit of work  
-> C. The benchmark **measures** that cost  
-> D. The profiler **explains** that cost *(Advanced only)*
-
-Cost is treated as a software metric, alongside correctness, latency, memory and reliability.
-
-That includes at least four dimensions:
+The model is expressed per **canonical unit of work** across four dimensions:
 
 - 💰 **money**
 - ⏱️ **time**
 - 🪫 **energy**
 - 💨 **carbon**
 
----
-
-## Simple, explicit and auditable math
-
-NextEco is grounded in simple formulas the agent must document and preserve.
+The math is intentionally simple and auditable:
 
 $$
-E_{\text{kWh}} = t_{\text{h}} \times P_{\text{kW}}
+E_{kWh} = t_h \times P_{kW}
 $$
 
 $$
-C_{\text{USD}} = E_{\text{kWh}} \times p_{\text{USD/kWh}}
+C_{USD} = E_{kWh} \times p_{USD/kWh}
 $$
 
 $$
-\text{CO}_2\text{e}_{\text{g}} = E_{\text{kWh}} \times I_{\text{gCO}_2\text{e/kWh}}
+CO2e_g = E_{kWh} \times I_{gCO2e/kWh}
 $$
-
-
 | Symbol | Meaning | Unit |
 |---|---|---|
 | $E_{\mathrm{kWh}}$ | Energy consumed | kWh |
@@ -238,105 +284,106 @@ $$
 | $p_{\mathrm{USD}/\mathrm{kWh}}$ | Electricity price | USD / kWh |
 | $\mathrm{CO_2e}_{\mathrm{g}}$ | Carbon footprint | g CO₂e |
 | $I_{\mathrm{g\ CO_2e}/\mathrm{kWh}}$ | Grid carbon intensity | g CO₂e / kWh |
-
 The point is not sophistication.  
-The point is **clarity, auditability and testability**.
+The point is **clarity, auditability, and testability**.
+
+For carbon estimation, NextEco can align with Green Algorithms-style reasoning and low-level OS routines such as `powermetrics` on macOS and equivalent tools on Linux and Windows when real measurement is possible.
 
 ---
 
-## Metrology
+## Metrology and scientific hygiene
 
-NextEco pushes the agent toward actual local measurement whenever possible, using OS tools such as:
+NextEco pushes toward actual local measurement whenever possible, using OS-level tools such as:
 
 - `powermetrics` on macOS
-- `powertop` on Linux
-- `powercfg` on Windows
+- `powertop` or `turbostat` on Linux
+- `powercfg` or `perfmon` on Windows
 
-When measurement is not yet possible, the framework requires the agent to say so explicitly and leave a visible placeholder or `TODO`.
+When direct measurement is not available, the framework requires the result to remain explicit about estimation and to leave a visible placeholder or `TODO`.
 
-That is not a weakness, it is scientific hygiene.
-
----
-
-## Example schema
-
-Because grid carbon intensity varies drastically globally (e.g., France ~56 gCO₂e/kWh vs Australia ~620 gCO₂e/kWh) and power draw differs by hardware, NextEco requires developers to explicitly define their environment.
-
-You define the physical runtime and scale context in a heavily-commented `cost_of_running.yaml.example` file that users copy, edit, and save as `cost_of_running.yaml`:
-
-```yaml
-deployment:
-  provider: "unknown"        # e.g., aws / gcp / azure / oracle / on-prem / local / unknown
-  instance_type: "unknown"   # e.g., m2-pro, p3.2xlarge, a2-highgpu-1g
-  region: "unknown"          # e.g., eu-west-1, us-central1, local
-  country: "France"          # The explicit definition used for grid carbon/electricity tables
-
-workload:
-  type: "unknown"            # e.g., training / inference / batch / api / unknown
-  scale: "unknown"           # e.g., one-off / daily / continuous / 1M_requests_month
-```
-
-A generated `cost_of_running.yaml` integrates this base and may look like this:
-
-```yaml
-date_updated: YYYY-MM-DD
-
-deployment:
-  provider: "on-prem"
-  instance_type: "custom-server"
-  region: "local"
-  country: "France"
-
-workload:
-  type: "inference"
-  scale: "daily"
-
-unit_of_work:
-  name: "one CLI invocation"
-  description: "..."
-  rationale: "..."
-
-methodology:
-  approach: "Green Algorithms-inspired"
-  formula_notes:
-    - "energy_kwh = runtime_hours * average_power_kw"
-    - "carbon_gco2e = energy_kwh * carbon_intensity_gco2e_per_kwh"
-  benchmark:
-    status: "measured|not_run|TODO"
-
-assumptions:
-  electricity:
-    usd_per_kwh: 0.12
-    status: "estimated"
-
-scenarios:
-  - name: "typical"
-    per_unit:
-      runtime_s: 4.2
-      energy_kwh: 0.00023
-      total_usd: 0.0042
-      carbon_gco2e: 0.11
-    data_quality: "medium"
-
-todos:
-  - "TODO: validate runtime on target hardware"
-```
-
-Two distinctions matter:
-
-- `status` describes the provenance of a specific assumption
-- `data_quality` describes confidence in the scenario as a whole
-
-That separation keeps the model clean.
-
-Look at these examples of cost estimation reporting:
-  + [ChatGPT 4o RAG + LLM as a judge](examples/rag_llm_judge_chatgpt4o.md)
-
-  + [Ollama Gemma3:4b RAG + LLM as a judge](examples/rag_llm_judge_ollama_gemma3_4b.md) 
+That is not a weakness.  
+That is scientific hygiene.
 
 ---
 
-## How to use
+## Repository structure
+
+```text
+nexteco/
+├── README.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── pyproject.toml
+├── core.md
+├── advanced.md
+├── docs/
+├── nexteco/
+├── tests/
+├── examples/
+├── skill/
+│   └── nexteco/
+└── .github/
+```
+
+---
+
+## The two forms of NextEco
+
+## 1. OSS repository
+
+This is the canonical public project.
+
+It is for:
+
+- GitHub visibility
+- community discussion
+- open-source credibility
+- candidate signaling
+- releases and versioning
+- code review and contribution
+
+## 2. Embedded skill
+
+This is the canonical agent interface.
+
+It is for:
+
+- Claude-style agents
+- AI-powered IDEs
+- repeatable workflow execution
+- trigger-aware behavior
+- progressive disclosure of methodology
+
+The repo owns the source of truth.  
+The skill inherits the workflow.
+
+---
+
+## Documentation map
+
+- [`docs/methodology.md`](docs/methodology.md)
+- [`docs/yaml-schema.md`](docs/yaml-schema.md)
+- [`docs/repo-archetypes.md`](docs/repo-archetypes.md)
+- [`docs/benchmark-patterns.md`](docs/benchmark-patterns.md)
+- [`docs/roadmap.md`](docs/roadmap.md)
+- [`skill/nexteco/SKILL.md`](skill/nexteco/SKILL.md)
+
+---
+
+## Examples
+
+Illustrative examples are included to show different cost profiles:
+
+- [`examples/rag_llm_judge_chatgpt4o.md`](examples/rag_llm_judge_chatgpt4o.md) — API-dominated
+- [`examples/rag_llm_judge_ollama_gemma3_4b.md`](examples/rag_llm_judge_ollama_gemma3_4b.md) — local-compute-dominated
+- [`examples/generated_from_full_example.md`](examples/generated_from_full_example.md) — generated from the current full template
+
+The goal is not fake precision.  
+The goal is honest, reusable engineering structure.
+
+---
+
+## How to use NextEco with agents
 
 ### Claude Code
 
@@ -346,14 +393,13 @@ claude "$(cat core.md)"
 claude "$(cat advanced.md)"
 ```
 
-### Cursor / Windsurf / VS Code Agent / Copilot Agent
+### Cursor / Windsurf / Copilot Agent / other AI IDE workflows
 
-Open the agent chat, paste the contents of [`core.md`](core.md) or [`advanced.md`](advanced.md) and send.
+Open the agent chat, paste the contents of [`core.md`](core.md) or [`advanced.md`](advanced.md), and let the agent work directly in the repository.
 
-### Any other agentic coding tool
+### Embedded skill
 
-Paste the full prompt into the agent input.  
-The prompts are designed to be self-contained.
+The embedded skill in [`skill/nexteco/`](skill/nexteco/) is the more structured, reusable agent-native version of the same workflow.
 
 ---
 
@@ -372,40 +418,59 @@ NextEco is especially relevant for:
 
 ## What NextEco is not
 
-NextEco does not try to replace cloud billing platforms, observability suites or enterprise carbon accounting systems.
+NextEco does not try to replace:
+
+- cloud billing platforms
+- observability suites
+- enterprise carbon accounting systems
 
 It solves a narrower problem:
 
-> **How to add an honest, lightweight, engineering-grade cost model directly into a software repository.**
+> **how to add an honest, lightweight, engineering-grade cost model directly into a software repository**
 
 That narrowness is one of its strengths.
 
 ---
 
-## Contributing
+## Roadmap
 
-Issues and pull requests are welcome.
+Near-term priorities:
 
-The prompts are the product.
+- strengthen validation ergonomics
+- improve report rendering quality
+- expand repo archetype guidance
+- refine the embedded skill
+- make polyglot usage even clearer
+- richer JSON/YAML Schema export
+- optional HTML rendering
+- stronger scenario arithmetic checks
+- more end-to-end examples from real repositories
+- lightweight CI for tests, example validation, skill packaging, and benchmark smoke checks
+- cautious CD for release artifacts once the project surface is stable
 
-Good contributions usually improve one or more of the following:
+See [`docs/roadmap.md`](docs/roadmap.md).
 
-- agent behavior
-- reproducibility
-- clarity
-- portability
-- auditability
-- testability
-- honesty under uncertainty
+---
 
-When changing a prompt, test it on at least one real repository.
+## Contribution philosophy
+
+NextEco should remain:
+
+- small
+- sharp
+- auditable
+- boring in the best sense
+- honest about uncertainty
+
+We prefer durable engineering assets over polished theater.
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ---
 
 ## Author
 
-**Warith Harchaoui, Ph.D.**  
-
+[Warith Harchaoui, Ph.D.](https://www.linkedin.com/in/warith-harchaoui/)
 Head of AI at [NEXTON](https://nexton-group.com)
 
 ---

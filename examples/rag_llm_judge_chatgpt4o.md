@@ -1,6 +1,6 @@
 # Cost of Running — Example: RAG + LLM-as-Judge (OpenAI GPT-4o)
 
-> **This is a reference example** showing what a `## Cost of Running` README section looks like for a typical RAG pipeline that uses ChatGPT as both the answer generator and the LLM judge. Copy, adapt, and replace the placeholder numbers with your own measurements.
+> **This is a reference example** showing what a `## `cost_of_running.md` report looks like for a typical RAG pipeline that uses ChatGPT as both the answer generator and the LLM judge. Copy, adapt, and replace the placeholder numbers with your own measurements.
 
 **Architecture assumed:**
 - User query → `text-embedding-3-small` embedding → vector store lookup (top-k chunks) → `gpt-4o` answer generation → `gpt-4o` judge evaluation
@@ -111,7 +111,7 @@ API cost formula: `api_call.cost_usd = (tokens_in × price_per_1m_in + tokens_ou
 Total: `total_usd = local_compute_usd + sum(api_calls[*].cost_usd)`  
 Carbon: `carbon_gco2e = energy_kwh × 400` (local compute only)
 
-All formulas and assumptions are in `cost_of_running.yaml`. The README section is generated from it via `python scripts/update_cost_of_running.py`.
+All formulas and assumptions are in `cost_of_running.yaml`. The Markdown report is generated from it via a small helper script in the target repository.
 
 **Date updated:** 2025-04-13
 
@@ -126,7 +126,7 @@ pytest tests/test_cost_of_running.py -v
 # Run the benchmark (measures wall-clock time for one end-to-end query)
 pytest tests/test_benchmark_rag_pipeline.py --benchmark-only
 
-# Regenerate this README section from YAML
+# Regenerate the Markdown report from YAML
 python scripts/update_cost_of_running.py
 
 # Trace API calls and token counts for one representative query

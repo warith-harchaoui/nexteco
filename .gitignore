@@ -1,2 +1,7 @@
-**/.DS_Store
-.sync_state.json
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+dist/
+build/
+.DS_Store

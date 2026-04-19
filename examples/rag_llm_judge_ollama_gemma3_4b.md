@@ -1,6 +1,6 @@
 # Cost of Running — Example: RAG + LLM-as-Judge (Local Ollama · Gemma3:4b)
 
-> **This is a reference example** showing what a `## Cost of Running` README section looks like for a RAG pipeline running **entirely on local hardware** using Ollama with `Gemma3:4b`. Copy, adapt, and replace the placeholder numbers with your own measurements.
+> **This is a reference example** showing what a `## `cost_of_running.md` report looks like for a RAG pipeline running **entirely on local hardware** using Ollama with `Gemma3:4b`. Copy, adapt, and replace the placeholder numbers with your own measurements.
 
 **Architecture assumed:**
 - User query → local embedding model (`mxbai-embed-large` via Ollama) → local FAISS vector store → `Gemma3:4b` answer generation → `Gemma3:4b` judge evaluation
@@ -104,7 +104,7 @@ Carbon: `carbon_gco2e = energy_kwh × carbon_intensity_gco2e_per_kwh`
 API cost: $0.00 (no external API calls)  
 Total: `total_usd = local_compute_usd`
 
-All formulas and assumptions are in `cost_of_running.yaml`. The README section is generated from it via `python scripts/update_cost_of_running.py`.
+All formulas and assumptions are in `cost_of_running.yaml`. The Markdown report is generated from it via a small helper script in the target repository.
 
 **Date updated:** 2025-04-13
 
@@ -125,7 +125,7 @@ sudo powermetrics --samplers cpu_power -n 10 -i 1000 > power_log.txt
 # CPU profiling (local compute is the dominant driver here)
 python scripts/profile_rag_pipeline.py
 
-# Regenerate this README section from YAML
+# Regenerate the Markdown report from YAML
 python scripts/update_cost_of_running.py
 ```
 
