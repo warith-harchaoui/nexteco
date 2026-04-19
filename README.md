@@ -145,7 +145,7 @@ Modern software is increasingly:
 - model-heavy
 - geographically sensitive in cost and CO2 terms
 
-Yet most repositories still cannot answer a basic engineering question:
+Yet most repositories still cannot answer basic engineering questions starting from:
 
 > **What is the cost of one representative unit of work?**
 
@@ -188,9 +188,7 @@ In this repository:
 - audience-specific READMEs
 - an embedded skill for agent-native workflows
 
-The result is not a one-off report.
-
-It is a **maintainable subsystem**.
+The result is not a one-off report. It is a **maintainable subsystem**.
 
 ---
 
@@ -345,9 +343,9 @@ The point is **clarity, auditability, and testability**.
 
 When direct measurement is possible, NextEco can align with OS-level tools such as:
 
-- `powermetrics` on macOS
-- `powertop` or `turbostat` on Linux
-- `powercfg` or `perfmon` on Windows
+- `sudo powermetrics` on macOS
+- `sudo powertop` or `sudo turbostat` on Linux
+- `powercfg` or `perfmon` on Windows (may require Administrator privileges)
 
 When direct measurement is not available, the framework requires visible estimation, placeholders, or `TODO`s.
 
@@ -462,8 +460,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Author
 
-[Warith Harchaoui, Ph.D.](https://www.linkedin.com/in/warith-harchaoui/)  
-Head of AI at [NEXTON](https://nexton-group.com)
+[Warith Harchaoui, Ph.D.](https://www.linkedin.com/in/warith-harchaoui/), Head of AI at [NEXTON](https://nexton-group.com)
 
 ---
 

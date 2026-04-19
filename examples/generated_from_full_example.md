@@ -50,7 +50,7 @@
 | value | — |
 | unit | W |
 | status | TODO |
-| notes | May come from powermetrics, powertop, turbostat, perfmon or a justified estimate |
+| notes | May come from sudo powermetrics (macOS), sudo powertop/turbostat (Linux), perfmon (Windows Admin), or a justified estimate |
 
 ## External API pricing
 

@@ -49,9 +49,10 @@ When the repository does not already have an established cost-of-running subsyst
 
 Use these deterministic helpers when useful:
 
-- `scripts/init_cost_model.py`
-- `scripts/validate_cost_model.py`
-- `scripts/render_cost_model.py`
+- `nexteco init`
+- `nexteco validate`
+- `nexteco render`
+- `nexteco measure -- <command>` (to benchmark and extract dynamic power metrics)
 
 ## Final reminder
 

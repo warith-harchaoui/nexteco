@@ -6,6 +6,7 @@ REPO_ROOT = PACKAGE_DIR.parent
 MIN_TEMPLATE_PATH = REPO_ROOT / "cost_of_running.min.yaml.example"
 FULL_TEMPLATE_PATH = REPO_ROOT / "cost_of_running.full.yaml.example"
 
+
 def get_template_text(template_name: str) -> str:
     mapping = {
         "min": MIN_TEMPLATE_PATH,

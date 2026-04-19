@@ -150,9 +150,15 @@ def validate_cost_model(data: dict[str, Any]) -> ValidationResult:
                 if retrieved_date is not None:
                     retrieved_date_str = str(retrieved_date)
                     if retrieved_date_str == "YYYY-MM-DD":
-                        result.add("warning", f"assumptions.{key}.retrieved_date is still a template placeholder.")
+                        result.add(
+                            "warning",
+                            f"assumptions.{key}.retrieved_date is still a template placeholder.",
+                        )
                     elif not _check_date_string(retrieved_date_str):
-                        result.add("error", f"assumptions.{key}.retrieved_date must be YYYY-MM-DD")
+                        result.add(
+                            "error",
+                            f"assumptions.{key}.retrieved_date must be YYYY-MM-DD",
+                        )
                     else:
                         age = _days_since(retrieved_date_str)
                         if age is not None and age > 90:
@@ -161,7 +167,10 @@ def validate_cost_model(data: dict[str, Any]) -> ValidationResult:
                                 f"assumptions.{key} pricing/provenance data is older than 90 days; verify freshness.",
                             )
                 if source_url is not None and source_url == "TODO":
-                    result.add("warning", f"assumptions.{key}.source_url still needs human verification.")
+                    result.add(
+                        "warning",
+                        f"assumptions.{key}.source_url still needs human verification.",
+                    )
 
     pricing = data.get("pricing", {})
     if pricing and isinstance(pricing, dict):
@@ -171,18 +180,33 @@ def validate_cost_model(data: dict[str, Any]) -> ValidationResult:
         else:
             for idx, api in enumerate(external_apis):
                 if not isinstance(api, dict):
-                    result.add("error", f"pricing.external_apis[{idx}] must be a mapping")
+                    result.add(
+                        "error", f"pricing.external_apis[{idx}] must be a mapping"
+                    )
                     continue
                 price_per_unit = api.get("price_per_unit", {})
                 usage_per_unit = api.get("usage_per_canonical_unit", {})
                 subtotal = api.get("subtotal_usd", {})
-                _check_status(result, price_per_unit, f"pricing.external_apis[{idx}].price_per_unit")
-                _check_status(result, usage_per_unit, f"pricing.external_apis[{idx}].usage_per_canonical_unit")
-                _check_status(result, subtotal, f"pricing.external_apis[{idx}].subtotal_usd")
+                _check_status(
+                    result,
+                    price_per_unit,
+                    f"pricing.external_apis[{idx}].price_per_unit",
+                )
+                _check_status(
+                    result,
+                    usage_per_unit,
+                    f"pricing.external_apis[{idx}].usage_per_canonical_unit",
+                )
+                _check_status(
+                    result, subtotal, f"pricing.external_apis[{idx}].subtotal_usd"
+                )
                 source_url = price_per_unit.get("source_url")
                 retrieved_date = price_per_unit.get("retrieved_date")
                 if source_url in (None, "", "TODO"):
-                    result.add("warning", f"pricing.external_apis[{idx}].price_per_unit.source_url should be set.")
+                    result.add(
+                        "warning",
+                        f"pricing.external_apis[{idx}].price_per_unit.source_url should be set.",
+                    )
                 if retrieved_date:
                     retrieved_date_str = str(retrieved_date)
                     if retrieved_date_str == "YYYY-MM-DD":
@@ -206,9 +230,15 @@ def validate_cost_model(data: dict[str, Any]) -> ValidationResult:
                 price_value = _value_of(price_per_unit)
                 usage_value = _value_of(usage_per_unit)
                 subtotal_value = _value_of(subtotal)
-                if _is_number(price_value) and _is_number(usage_value) and _is_number(subtotal_value):
+                if (
+                    _is_number(price_value)
+                    and _is_number(usage_value)
+                    and _is_number(subtotal_value)
+                ):
                     expected = float(price_value) * float(usage_value)
-                    if not math.isclose(float(subtotal_value), expected, rel_tol=1e-9, abs_tol=1e-9):
+                    if not math.isclose(
+                        float(subtotal_value), expected, rel_tol=1e-9, abs_tol=1e-9
+                    ):
                         result.add(
                             "error",
                             f"pricing.external_apis[{idx}].subtotal_usd does not match price_per_unit × usage_per_canonical_unit",
@@ -223,7 +253,9 @@ def validate_cost_model(data: dict[str, Any]) -> ValidationResult:
     if not scenarios:
         result.add("error", "A model must define either 'scenario' or 'scenarios'.")
     if not isinstance(scenarios, list):
-        result.add("error", "Scenarios must be represented as a list after normalization.")
+        result.add(
+            "error", "Scenarios must be represented as a list after normalization."
+        )
         return result
 
     for idx, scenario in enumerate(scenarios):
@@ -243,32 +275,58 @@ def validate_cost_model(data: dict[str, Any]) -> ValidationResult:
             elec_cost = local_compute.get("electricity_cost_usd", {})
             carbon = local_compute.get("carbon_gco2e", {})
             _check_status(result, energy, f"scenario[{idx}].local_compute.energy_kwh")
-            _check_status(result, elec_cost, f"scenario[{idx}].local_compute.electricity_cost_usd")
+            _check_status(
+                result, elec_cost, f"scenario[{idx}].local_compute.electricity_cost_usd"
+            )
             _check_status(result, carbon, f"scenario[{idx}].local_compute.carbon_gco2e")
 
         external_api_cost = scenario.get("external_api_cost_usd", {})
-        _check_status(result, external_api_cost, f"scenario[{idx}].external_api_cost_usd")
+        _check_status(
+            result, external_api_cost, f"scenario[{idx}].external_api_cost_usd"
+        )
 
         totals = scenario.get("totals", {})
         if isinstance(totals, dict):
             total_cost = totals.get("total_cost_usd", {})
             total_carbon = totals.get("total_carbon_gco2e", {})
             _check_status(result, total_cost, f"scenario[{idx}].totals.total_cost_usd")
-            _check_status(result, total_carbon, f"scenario[{idx}].totals.total_carbon_gco2e")
+            _check_status(
+                result, total_carbon, f"scenario[{idx}].totals.total_carbon_gco2e"
+            )
 
-            local_cost_value = _value_of(local_compute.get("electricity_cost_usd", {})) if isinstance(local_compute, dict) else None
+            local_cost_value = (
+                _value_of(local_compute.get("electricity_cost_usd", {}))
+                if isinstance(local_compute, dict)
+                else None
+            )
             api_cost_value = _value_of(external_api_cost)
             total_cost_value = _value_of(total_cost)
-            if _is_number(local_cost_value) and _is_number(api_cost_value) and _is_number(total_cost_value):
+            if (
+                _is_number(local_cost_value)
+                and _is_number(api_cost_value)
+                and _is_number(total_cost_value)
+            ):
                 expected = float(local_cost_value) + float(api_cost_value)
-                if not math.isclose(float(total_cost_value), expected, rel_tol=1e-9, abs_tol=1e-9):
-                    result.add("error", f"scenario[{idx}].totals.total_cost_usd does not equal local + external API cost")
+                if not math.isclose(
+                    float(total_cost_value), expected, rel_tol=1e-9, abs_tol=1e-9
+                ):
+                    result.add(
+                        "error",
+                        f"scenario[{idx}].totals.total_cost_usd does not equal local + external API cost",
+                    )
 
-            local_carbon_value = _value_of(local_compute.get("carbon_gco2e", {})) if isinstance(local_compute, dict) else None
+            local_carbon_value = (
+                _value_of(local_compute.get("carbon_gco2e", {}))
+                if isinstance(local_compute, dict)
+                else None
+            )
             total_carbon_value = _value_of(total_carbon)
             if _is_number(local_carbon_value) and _is_number(total_carbon_value):
                 if float(total_carbon_value) < float(local_carbon_value):
-                    result.add("error", f"scenario[{idx}].totals.total_carbon_gco2e cannot be smaller than local carbon")
+                    result.add(
+                        "error",
+                        f"scenario[{idx}].totals.total_carbon_gco2e cannot be smaller than local carbon",
+                    )
 
     return result
 
@@ -291,7 +349,9 @@ def _append_kv_section(lines: list[str], title: str, mapping: dict[str, Any]) ->
     lines.append("")
 
 
-def _append_structured_mapping(lines: list[str], title: str, mapping: dict[str, Any]) -> None:
+def _append_structured_mapping(
+    lines: list[str], title: str, mapping: dict[str, Any]
+) -> None:
     if not mapping:
         return
     lines.append(f"## {title}")
@@ -351,7 +411,9 @@ def render_markdown(data: dict[str, Any]) -> str:
             lines.append("")
 
     pricing = data.get("pricing", {})
-    external_apis = pricing.get("external_apis", []) if isinstance(pricing, dict) else []
+    external_apis = (
+        pricing.get("external_apis", []) if isinstance(pricing, dict) else []
+    )
     if external_apis:
         lines.append("## External API pricing")
         lines.append("")

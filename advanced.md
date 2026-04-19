@@ -128,13 +128,13 @@ If freshness is uncertain, downgrade confidence and say so.
 
 ## Platform-aware guidance
 
-When local compute matters, acknowledge platform-specific tools such as:
+When local compute matters, use the `nexteco measure -- <command>` subsystem. This command abstracts away OS-specific tools like:
 
-- macOS: `powermetrics`
-- Linux: `powertop`, `turbostat`
-- Windows: `powercfg`, `perfmon`
+- `sudo powermetrics` on macOS
+- `sudo turbostat` or `sudo powertop` on Linux
+- `typeperf` or `perfmon` on Windows
 
-Do not claim those measurements happened unless they actually did.
+Do not claim those measurements happened unless you actually ran `nexteco measure` and documented the resulting artifact.
 
 When direct energy measurement is unavailable, use explicit estimated formulas and explain the assumption path.
 

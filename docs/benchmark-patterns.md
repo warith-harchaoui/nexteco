@@ -29,17 +29,17 @@ A lightweight benchmark scaffold is better than pretending exact measurement hap
 ### CLI
 
 ```bash
-python -m mytool --input fixtures/sample.json
+nexteco measure -- python -m mytool --input fixtures/sample.json
 ```
 
 ### API service
 
 ```bash
-pytest tests/benchmarks/test_request_path.py -q
+nexteco measure -- pytest tests/benchmarks/test_request_path.py -q
 ```
 
 ### NextEco itself
 
 ```bash
-python scripts/benchmark_render.py cost_of_running.full.yaml.example --iterations 20
+nexteco measure -- python scripts/benchmark_render.py cost_of_running.full.yaml.example --iterations 20
 ```

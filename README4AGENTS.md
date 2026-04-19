@@ -19,7 +19,7 @@ An agent can help:
 - inspect repo archetypes
 - propose a canonical unit of work
 - populate assumptions
-- benchmark candidate paths
+- benchmark candidate paths using `nexteco measure`
 - regenerate documentation
 
 ## Human role

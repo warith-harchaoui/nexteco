@@ -72,7 +72,7 @@ Typical query: $0.000038 (local) vs $0.0103 (GPT-4o) — local is **~270× cheap
 |---|---|---|---|
 | Gemma3:4b prefill speed | 180 tokens/sec | estimated | Ollama community benchmarks, Apple M2 Pro, April 2025 |
 | Gemma3:4b generation speed | 20 tokens/sec | estimated | Ollama community benchmarks, Apple M2 Pro, April 2025 |
-| Hardware power draw | 28 W (inference) / 12 W (idle) | estimated | Apple M2 Pro TDP profile; TODO: validate with powermetrics |
+| Hardware power draw | 28 W (inference) / 12 W (idle) | estimated | Apple M2 Pro TDP profile; TODO: validate with sudo powermetrics |
 | Electricity price | $0.12 / kWh | estimated | EU average residential, 2024 |
 | Carbon intensity | 400 gCO₂e / kWh | estimated | global average, Our World in Data 2023 |
 | Exchange rate | 1 USD = 0.92 EUR | estimated | approximate, April 2025 |
@@ -130,11 +130,11 @@ python scripts/update_cost_of_running.py
 ```
 
 **TODOs:**
-- `TODO: run powermetrics during a typical query and record actual power draw to replace the 28W estimate`
+- `TODO: run nexteco measure -- <ollama_inference_cmd> during a typical query and record actual power draw to replace the 28W estimate`
 - `TODO: benchmark actual prefill and generation throughput on target hardware (Gemma3:4b via Ollama)`
 - `TODO: validate token counts by logging Ollama API usage for 10 representative queries`
 - `TODO: profile with scripts/profile_rag_pipeline.py and identify if embedding or LLM inference is the CPU hotspot`
-- `TODO: test on Linux hardware (powertop instead of powermetrics) and update carbon figures`
+- `TODO: test on Linux hardware (nexteco measure will invoke turbostat automatically) and update carbon figures`
 
 <!-- COST_OF_RUNNING:END -->
 
@@ -196,8 +196,8 @@ methodology:
       embedding, tokenization, or LLM inference, and to confirm that
       power draw assumptions are realistic.
     notes:
-      - "Also run: sudo powermetrics --samplers cpu_power -n 10 -i 1000 > power_log.txt"
-      - "On Linux: powertop or turbostat for power measurement."
+      - "Also run: nexteco measure -- <target_inference_script> to dynamically log metrics"
+      - "On Linux: nexteco measure handles the turbostat switch automatically."
   notes:
     - "No API-call tracing needed — all inference is local via Ollama."
 
@@ -313,8 +313,8 @@ exclusions:
 
 todos:
   - "TODO: benchmark with pytest-benchmark on target hardware with Ollama running"
-  - "TODO: measure power draw with: sudo powermetrics --samplers cpu_power -n 10 -i 1000 > power_log.txt"
+  - "TODO: execute target trace via: nexteco measure -- <ollama_inference_cmd> to accurately collect telemetry"
   - "TODO: validate token counts by logging Ollama API usage for 10 representative queries"
   - "TODO: run CPU profile with scripts/profile_rag_pipeline.py to confirm inference is the bottleneck"
-  - "TODO: test on Linux hardware and replace powermetrics with powertop / turbostat"
+  - "TODO: test on Linux hardware. nexteco measure proxies to turbostat seamlessly."
 ```

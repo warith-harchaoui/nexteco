@@ -124,7 +124,8 @@ electricity_cost = energy_kwh × electricity_price_per_kwh
 carbon_gco2e = energy_kwh × grid_carbon_intensity_gco2e_per_kwh
 ```
 
-Do not imply that `powermetrics`, `powertop`, `turbostat`, `perfmon`, or similar tools were used unless the repository truly contains that evidence or you executed them and documented it.
+Whenever possible, utilize the native `nexteco measure -- <command>` toolchain rather than manually invoking raw OS tools.
+Do not imply that `nexteco measure` or manual OS measurements were used unless the repository truly contains that evidence or you executed them and documented the outcome.
 
 ---
 
@@ -155,7 +156,7 @@ At minimum, leave behind:
 - `cost_of_running.md`
 - a small script or package command that validates and renders the report
 - one test that catches arithmetic or sync drift
-- one benchmark or reproducible timing entry point
+- one benchmark or reproducible timing entry point (ideally executed via `nexteco measure`)
 
 This minimum must be genuinely useful.
 
