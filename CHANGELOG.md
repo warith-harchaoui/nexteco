@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+- added `nexteco measure -- <command>` functionality to natively benchmark empirical OS power and energy
+- implemented background metrology pipelines abstracting `powermetrics` (macOS), `turbostat` (Linux), and `typeperf` (Windows) 
+- rewired `core.md`, `advanced.md`, and `SKILL.md` logic to instruct AI agents to leverage the `measure` pipeline organically
+- added strict PEP8 code formatting and continuous linting enforcement via Ruff
+- resolved manual `sudo` inconsistencies natively across examples and documentation routines
+
 ## 0.2.0
 
 - repositioned NextEco as a two-form product: OSS repository + embedded skill

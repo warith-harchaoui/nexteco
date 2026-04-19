@@ -3,11 +3,16 @@
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue)](#install)
 [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-lightgrey)](LICENSE)
 
+[![Français](https://img.shields.io/badge/Français-🇫🇷-blue)](LISEZMOI.md)
+[![English](https://img.shields.io/badge/English-🇬🇧-blue)](README.md)
+
+
 ![NextEco](assets/logo.png)
+
 
 **NextEco** helps any software repository answer one practical engineering question early and honestly:
 
-> **What does this code cost to run in 💰 money, ⏱️ time, 🪫 energy, and 💨 CO2?**
+> **What does the code cost to run in 💰 money, ⏱️ time, 🪫 energy, and 💨 CO2?**
 
 Not as vague storytelling.  
 As a **small, repository-native subsystem** that teams can review, validate, benchmark, and maintain.
